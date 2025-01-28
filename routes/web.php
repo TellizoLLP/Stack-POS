@@ -18,6 +18,7 @@ Route::group(['prefix' => 'admin/', 'middleware' => ['admin','install']], functi
     Route::get('/pos', \App\Http\Livewire\Admin\Orders\PosScreen::class)->name('admin.pos');
     
     Route::group(['prefix' => 'inventory/'], function () {
+        Route::get('/', \App\Http\Livewire\Admin\Inventory\InventoryView::class)->name('admin.view_inventory');
         Route::get('/products', \App\Http\Livewire\Admin\Products\ViewProducts::class)->name('admin.view_products');
         Route::get('/products/{id}/addons', \App\Http\Livewire\Admin\Products\Addons::class)->name('admin.addons');
         Route::get('/products/add', \App\Http\Livewire\Admin\Products\AddProducts::class)->name('admin.add_products');
@@ -38,10 +39,12 @@ Route::group(['prefix' => 'admin/', 'middleware' => ['admin','install']], functi
     });
 
     Route::group(['prefix' => 'settings/'], function () {
+        Route::get('/', \App\Http\Livewire\Admin\Settings\SettingsView::class)->name('admin.view_settings');
         Route::get('/app', \App\Http\Livewire\Admin\Settings\AppSettings::class)->name('admin.app_settings');
         Route::get('/account', \App\Http\Livewire\Admin\Settings\AccountSettings::class)->name('admin.account_settings');
     });
     Route::group(['prefix' => 'reports/'], function () {
+        Route::get('/', \App\Http\Livewire\Admin\Reports\ReportsView::class)->name('admin.report_view');
         Route::get('/sales', \App\Http\Livewire\Admin\Reports\SalesReport::class)->name('admin.sales_report');
         Route::get('/day-wise', \App\Http\Livewire\Admin\Reports\DaywiseSalesReport::class)->name('admin.daywise_report');
         Route::get('/item-sales', \App\Http\Livewire\Admin\Reports\ItemSalesReport::class)->name('admin.item_sales_report');
