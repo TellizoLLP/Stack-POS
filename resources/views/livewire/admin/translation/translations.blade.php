@@ -23,11 +23,10 @@
         </div>
     </div>
     <main class="w-full grow scrollable-y-auto" style="max-height: 100vh;">
-        <div class="container-fluid">
-            <div>
-                <div class="row mb-2 mb-xl-3"></div>
-                <div class="row">
-                    <div class="col-12">
+        <div class="min-w-full card card-grid rounded-none border-none shadow-none">
+            <div class="card-body">
+                <div>
+                    <div class="scrollable-x-auto">
                         <div class="card p-0">
                             <div class="card-body p-0">
                                 <table class="table table-striped table-bordered mb-0">
