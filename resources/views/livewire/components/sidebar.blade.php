@@ -1,150 +1,142 @@
-<div>
-    <nav id="sidebar" class="sidebar js-sidebar">
-        <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="{{route('admin.dashboard')}}">
-                <span class="sidebar-brand-text align-middle">
-                    {{getStoreName()}}
-                    <sup><small class="badge bg-primary text-uppercase">{{$lang->data['version']??'v2'}}</small></sup>
+<div class="fixed w-[--tw-sidebar-width] lg:top-[--tw-header-height] top-0 bottom-0 z-20 hidden lg:flex flex-col items-stretch shrink-0 group py-3 lg:py-0"
+    data-drawer="true" data-drawer-class="top-0 bottom-0 drawer drawer-start" data-drawer-enable="true|lg:false"
+    id="sidebar">
+    <div class="flex h-full grow shrink-0" id="sidebar_content">
+        <div class="h-[calc(100dvh-4rem)] overflow-y-auto grow gap-2.5 shrink-0 flex items-center flex-col">
+            <a class=" @if(Request::is('admin/dashboard')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right"  href="{{ route('admin.dashboard') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-chart-line-star">
+                    </i>
                 </span>
-                <svg class="sidebar-brand-icon align-middle" width="32px" height="32px" viewBox="0 0 24 24"
-                    fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"
-                    color="#FFFFFF" class="mm-3">
-                    <path d="M12 4L20 8.00004L12 12L4 8.00004L12 4Z"></path>
-                    <path d="M20 12L12 16L4 12"></path>
-                    <path d="M20 16L12 20L4 16"></path>
-                </svg>
+                <span class="tooltip">
+                    {{$lang->data['dashboard'] ?? 'Dashboard'}}
+                </span>
             </a>
-
-            
-
-            <ul class="sidebar-nav">
-                <li class="sidebar-header">
-                    {{$lang->data['pages']??'Pages'}}
-                </li>
-                <li class="sidebar-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('admin.dashboard') }}">
-                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">{{$lang->data['dashboard'] ?? 'Dashboard'}}</span>
-                    </a>
-                </li>
-                @if (Auth::user()->can('add_order'))
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('admin.pos') }}">
-                        <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">{{$lang->data['pos'] ?? 'POS'}}</span>
-                    </a>
-                </li>
-                @endif
-                @if (Auth::user()->can('add_order') ||Auth::user()->can('orders_list') ||Auth::user()->can('edit_order') || Auth::user()->can('delete_order'))
-                <li
-                    class="sidebar-item  {{ Request::is('admin/orders') || Request::is('admin/orders/view*') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('admin.orders') }}">
-                        <i class="align-middle" data-feather="layout"></i> <span class="align-middle">{{$lang->data['orders'] ?? 'Orders'}}</span>
-                    </a>
-                </li>
-                @endif
-                @if (Auth::user()->can('view_status_screen') )
-                <li class="sidebar-item {{ Request::is('admin/orders/status-screen*') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('admin.order_status_screen') }}">
-                        <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">{{$lang->data['order_status_screen'] ?? 'Order Status Screen'}}</span>
-                    </a>
-                </li>
-                @endif
-                @if (Auth::user()->can('customers_list'))
-                <li class="sidebar-item {{ Request::is('admin/customers*') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('admin.customers') }}">
-                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">{{$lang->data['customers']??'Customers'}}</span>
-                    </a>
-                </li>
-                @endif
-                @if (Auth::user()->can('products_list') ||Auth::user()->can('categories_list'))
-                <li class="sidebar-item {{ Request::is('admin/inventory/*') ? 'active' : '' }}">
-                    <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle" data-feather="check-circle"></i> <span
-                            class="align-middle">{{$lang->data['inventory']??'Inventory'}}</span>
-                    </a>
-                    <ul id="forms"
-                        class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/inventory/*') ? 'show' : '' }}"
-                        data-bs-parent="#sidebar">
-                        @if (Auth::user()->can('products_list'))
-                        <li class="sidebar-item {{ Request::is('admin/inventory/products*') ? 'active' : '' }}"><a
-                                class="sidebar-link" href="{{ route('admin.view_products') }}">{{$lang->data['products']??'Products'}}</a></li>
-                        @endif
-                        @if (Auth::user()->can('categories_list'))
-                        <li class="sidebar-item {{ Request::is('admin/inventory/category*') ? 'active' : '' }}"><a
-                                class=" sidebar-link" href="{{ route('admin.product_category') }}">{{$lang->data['category']??'Category'}}</a></li>
-                        @endif
-                    </ul>
-                </li>
-                @endif
+            @if (Auth::user()->can('add_order'))
+            <a class=" @if(Request::is('admin/pos')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-500 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right" href="{{ route('admin.pos') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-cheque">
+                    </i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['pos'] ?? 'POS'}}
+                </span>
+            </a>
+            @endif
+            @if (Auth::user()->can('add_order') ||Auth::user()->can('orders_list') ||Auth::user()->can('edit_order') || Auth::user()->can('delete_order'))
+            <a class=" @if(Request::is('admin/orders')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-500 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right" href="{{ route('admin.orders') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-grid"></i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['orders'] ?? 'Orders'}}
+                </span>
+            </a>
+            @endif
+            @if (Auth::user()->can('view_status_screen') )
+            <a class=" @if(Request::is('admin/orders/status-screen')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right"  href="{{ route('admin.order_status_screen') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-check-circle"></i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['order_status_screen'] ?? 'Order Status Screen'}}
+                </span>
+            </a>
+            @endif
+            @if (Auth::user()->can('customers_list'))
+            <a class=" @if(Request::is('admin/customers')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right"   href="{{ route('admin.customers') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-users">
+                    </i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['customers']??'Customers'}}
+                </span>
+            </a>
+            @endif
+            @if (Auth::user()->can('products_list') ||Auth::user()->can('categories_list'))
+            <a class=" @if(Request::is('admin/inventory')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right"   href="">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-shop"></i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['inventory']??'Inventory'}}
+                </span>
+            </a>
+            @endif
             @if (Auth::user()->can('tables_list'))
-            <li class="sidebar-item {{ Request::is('admin/tables*') ? 'active' : '' }}">
-                <a class="sidebar-link " href="{{ route('admin.tables') }}">
-                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">{{$lang->data['table']??'Table'}}</span>
-                </a>
-            </li>
+            <a class=" @if(Request::is('admin/tables')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right"   href="{{ route('admin.tables') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-grid">
+                    </i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['table']??'Table'}}
+                </span>
+            </a>
             @endif
             @if (Auth::user()->can('add_staff') ||Auth::user()->can('staffs_list') ||Auth::user()->can('edit_staff') || Auth::user()->can('delete_staff'))
-            <li class="sidebar-item {{ Request::is('admin/staff*') ? 'active' : '' }}">
-                <a class="sidebar-link " href="{{ route('admin.staffs') }}">
-                    <i class="align-middle" data-feather="users"></i> <span class="align-middle">{{$lang->data['staffs']??'Staffs'}}</span>
-                </a>
-            </li>
+            <a class=" @if(Request::is('admin/staff')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right"   href="{{ route('admin.staffs') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-users"></i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['staffs']??'Staffs'}}
+                </span>
+            </a>
             @endif
             @if (Auth::user()->can('sales_report') || Auth::user()->can('day_wise_sales_report') || Auth::user()->can('item_wise_sales_report') || Auth::user()->can('customer_report'))
-            <li class="sidebar-item {{ Request::is('admin/reports*') ? 'active' : '' }}">
-                <a data-bs-target="#reports" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="align-middle" data-feather="bar-chart"></i> <span class="align-middle">{{$lang->data['reports']??'Reports'}}</span>
-                </a>
-                <ul id="reports" class="sidebar-dropdown list-unstyled collapse {{ Request::is('admin/reports*') ? 'show' : '' }}" data-bs-parent="#sidebar">
-                    @if (Auth::user()->can('sales_report'))
-                        <li class="sidebar-item {{ Request::is('admin/reports/sales*') ? 'active' : '' }} "><a class="sidebar-link" href="{{route('admin.sales_report')}}">{{$lang->data['sales_report'] ?? 'Sales Report'}}</a>
-                        </li>
-                    @endif
-                    @if (Auth::user()->can('day_wise_sales_report'))
-                        <li class="sidebar-item {{ Request::is('admin/reports/day-wise*') ? 'active' : '' }} "><a class="sidebar-link" href="{{route('admin.daywise_report')}}">{{$lang->data['day_wise_report']??'Day Wise Sales
-                                Report'}}</a></li>
-                    @endif
-                    @if (Auth::user()->can('item_wise_sales_report'))
-                        <li class="sidebar-item {{ Request::is('admin/reports/item-sales*') ? 'active' : '' }} "><a class="sidebar-link" href="{{route('admin.item_sales_report')}}">{{$lang->data['item_wise_report']??'Item Wise
-                                Sales Report'}}</a></li>
-                    @endif
-                    @if (Auth::user()->can('customer_report'))
-                        <li class="sidebar-item {{ Request::is('admin/reports/customer*') ? 'active' : '' }} "><a class="sidebar-link" href="{{route('admin.customer_report')}}">{{$lang->data['customer_report']??'Customer Report'}}</a></li>
-                    @endif
-
-                </ul>
-            </li>
+            <a class=" @if(Request::is('admin/reports')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right" href="">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-shop"></i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['reports']??'Reports'}}
+                </span>
+            </a>
             @endif
             @if (Auth::user()->can('translations_list') )
-            <li class="sidebar-item {{ Request::is('admin/translations*') ? 'active' : '' }}">
-                <a class="sidebar-link " href="{{ route('admin.translations') }}">
-                    <i class="align-middle" data-feather="globe"></i> <span class="align-middle">{{$lang->data['translations']??'Translations'}}</span>
-                </a>
-            </li>
+            <a class=" @if(Request::is('admin/translations')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right" href="{{ route('admin.translations') }}">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-notepad-bookmark"></i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['translations']??'Translations'}}
+                </span>
+            </a>
             @endif
             @if (Auth::user()->can('account_settings') || Auth::user()->can('app_settings'))
-            <li class="sidebar-item {{ Request::is('admin/settings*') ? 'active' : '' }}">
-                <a data-bs-target="#settings" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="align-middle" data-feather="settings"></i> <span class="align-middle">{{$lang->data['settings']??'Settings'}}</span>
-                </a>
-                <ul id="settings" class="sidebar-dropdown list-unstyled collapse  {{ Request::is('admin/settings/*') ? 'show' : '' }}" data-bs-parent="#sidebar">
-                    @if (Auth::user()->can('account_settings') )
-                    <li class="sidebar-item {{ Request::is('admin/settings/account') ? 'active' : '' }}" ><a class="sidebar-link"
-                            href="{{ route('admin.account_settings') }}">{{$lang->data['account_settings']??'Account Settings'}}</a>
-                    </li>
-                    @endif
-                    @if (Auth::user()->can('app_settings') )
-                    <li class="sidebar-item {{ Request::is('admin/settings/app') ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('admin.app_settings') }}">{{$lang->data['app_settings']??'App
-                            Settings'}}</a></li>
-                    @endif
-                </ul>
-            </li>
+            <a class=" @if(Request::is('admin/settings')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                data-tooltip="" data-tooltip-placement="right" href="">
+                <span class="menu-icon">
+                    <i class="ki-filled ki-setting-2">
+                    </i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['settings']??'Settings'}}
+                </span>
+            </a>
             @endif
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="#" wire:click.prevent='logout'>
-                    <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">{{$lang->data['logout']??'Logout'}}</span>
-                </a>
-            </li>
-            </ul>
+            {{-- <a class=" btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
+                 href="#" wire:click.prevent='logout'>
+                <span class="menu-icon">
+                    <i class="ki-filled ki-setting-2">
+                    </i>
+                </span>
+                <span class="tooltip">
+                    {{$lang->data['logout']??'Logout'}}
+                </span>
+            </a> --}}
         </div>
-    </nav>
+    </div>
 </div>
