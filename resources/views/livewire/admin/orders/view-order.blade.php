@@ -1,7 +1,7 @@
 <div>
     <div class="row mb-2 mb-xl-3">
         <div class="col d-none d-sm-block">
-            <h3><strong>{{$lang->data['order_no'] ?? 'Order No'}}: {{ $order->order_number }}</strong></h3>
+        <strong>{{$lang->data['order_no'] ?? 'Order No'}}: {{ $order->order_number }}</strong></h3>
         </div>
         <div class="col-auto ms-auto text-end mt-n1">
             <a href="{{ url('/admin/orders/print/'.$order->id.'/1') }}" target="__blank" class="btn btn-success">{{$lang->data['print_invoice'] ?? 'Print Invoice'}}</a>
