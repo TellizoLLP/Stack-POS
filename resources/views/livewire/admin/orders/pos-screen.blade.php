@@ -1,7 +1,7 @@
 <div>
     <div class="wrapper">
         <div class="main">
-            <livewire:components.header />
+            {{-- <livewire:components.header /> --}}
             <main class="content p-0">
                 <div class="container-fluid p-0">
                     <div class="row box-height">
