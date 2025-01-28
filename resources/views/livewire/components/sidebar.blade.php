@@ -61,7 +61,7 @@
             @endif
             @if (Auth::user()->can('products_list') ||Auth::user()->can('categories_list'))
             <a class=" @if(Request::is('admin/inventory')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
-                data-tooltip="" data-tooltip-placement="right"   href="">
+                data-tooltip="" data-tooltip-placement="right"   href="{{route('admin.view_inventory')}}">
                 <span class="menu-icon">
                     <i class="ki-filled ki-shop"></i>
                 </span>
