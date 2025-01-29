@@ -71,7 +71,7 @@
             </div>
             <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    {{ $lang->data['contact_number'] ?? 'Contact Number' }}
+                    {{ $lang->data['contact_number'] ?? 'Contact Number' }} <span class="text-danger"><strong>*</strong></span>
                 </label>
                 <div class="grow">
                     <input class="input"
@@ -85,7 +85,7 @@
 
             <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    {{ $lang->data['email'] ?? 'Email' }}
+                    {{ $lang->data['email'] ?? 'Email' }} <span class="text-danger"><strong>*</strong></span>
                 </label>
                 <div class="grow">
                     <input class="input" type="email"
@@ -97,7 +97,7 @@
             </div>
             <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    {{ $lang->data['currency_symbol'] ?? 'Currency Symbol' }}
+                    {{ $lang->data['currency_symbol'] ?? 'Currency Symbol' }} <span class="text-danger"><strong>*</strong></span>
                 </label>
                 <div class="grow">
                     <input class="input" type="text"
@@ -110,7 +110,7 @@
             </div>
             <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    {{ $lang->data['tax_percentage'] ?? 'Tax Percentage' }}
+                    {{ $lang->data['tax_percentage'] ?? 'Tax Percentage' }} <span class="text-danger"><strong>*</strong></span>
                 </label>
                 <div class="grow">
                     <input class="input" type="text"
@@ -126,7 +126,7 @@
                     {{ $lang->data['address'] ?? 'Address' }}
                 </label>
                 <div class="grow">
-                    <textarea class="input pt-3 resize-none" type="text" rows="4" wire:model='address'></textarea>
+                    <textarea class="input pt-3 resize-none min-h-20" type="text"  wire:model='address'></textarea>
                 </div>
             </div>
             <div class="flex justify-end">
