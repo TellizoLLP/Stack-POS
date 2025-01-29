@@ -19,7 +19,7 @@
             <div class="flex gap-5 p-5">
                 <div class="card p-5 grid grid-cols-1 lg:grid-cols-4 gap-5">
                     <div class="flex flex-col gap-2.5">
-                        <i class="ki-filled ki-setting-2 text-2xl text-primary mb-1.5">
+                        <i class="ki-filled ki-user text-2xl text-primary mb-1.5"></i>
                         </i>
                            <div class="flex flex-col gap-3">
                             <h3 class="text-base font-medium leading-none text-gray-900">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="card p-5 grid grid-cols-1 lg:grid-cols-4 gap-5">
                     <div class="flex flex-col gap-2.5">
-                        <i class="ki-filled ki-setting-2 text-2xl text-primary mb-1.5">
+                        <i class="ki-filled ki-night-day text-2xl text-primary mb-1.5">
                         </i>
                         <div class="flex flex-col gap-3">
                             <h3 class="text-base font-medium leading-none text-gray-900">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="card p-5 grid grid-cols-1 lg:grid-cols-4 gap-5">
                     <div class="flex flex-col gap-2.5">
-                        <i class="ki-filled ki-setting-2 text-2xl text-primary mb-1.5">
+                        <i class="ki-filled ki-notepad text-2xl text-primary mb-1.5">
                         </i>
                         <div class="flex flex-col gap-3">
                             <h3 class="text-base font-medium leading-none text-gray-900">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="card p-5 grid grid-cols-1 lg:grid-cols-4 gap-5">
                     <div class="flex flex-col gap-2.5">
-                        <i class="ki-filled ki-setting-2 text-2xl text-primary mb-1.5">
+                        <i class="ki-filled ki-purchase text-2xl text-primary mb-1.5">
                         </i>
                         <div class="flex flex-col gap-3">
                             <h3 class="text-base font-medium leading-none text-gray-900">
