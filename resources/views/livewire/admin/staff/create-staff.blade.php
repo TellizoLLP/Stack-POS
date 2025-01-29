@@ -8,7 +8,7 @@
                     </h1>
                 </div>
                 <div class="flex items-center gap-1">
-                    <a class="btn btn-dark btn-sm" href="{{route('admin.staffs')}}">
+                    <a class="btn btn-light btn-sm" href="{{route('admin.staffs')}}">
                         {{ $lang->data['back'] ?? 'Back' }}
                     </a>
                 </div>
