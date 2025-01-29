@@ -76,7 +76,7 @@
                 {{ $lang->data['address'] ?? 'Address' }}
             </label>
             <div class="grow">
-                <textarea class="input pt-3 resize-none" type="password" wire:model="address"></textarea>
+                <textarea class="input pt-3 resize-none input min-h-20" type="password" wire:model="address"></textarea>
                 @error('address')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
