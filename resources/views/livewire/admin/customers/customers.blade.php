@@ -21,14 +21,6 @@
                 </div>
             </div>
         </div>
-
-
-        {{-- <div class="col-auto ms-auto text-end mt-n1">
-            @if (Auth::user()->can('add_customer'))
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCustomer" wire:click="resetFields">{{$lang->data['new_customer']??'New
-                Customer'}}</a>
-            @endif
-        </div> --}}
     </div>
     <main class="w-full grow">
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">

@@ -95,7 +95,7 @@
             @endif
             @if (Auth::user()->can('sales_report') || Auth::user()->can('day_wise_sales_report') || Auth::user()->can('item_wise_sales_report') || Auth::user()->can('customer_report'))
             <a class=" @if(Request::is('admin/reports')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
-                data-tooltip="" data-tooltip-placement="right" href="">
+                data-tooltip="" data-tooltip-placement="right" href="{{route('admin.report_view')}}">
                 <span class="menu-icon">
                     <i class="ki-filled ki-shop"></i>
                 </span>
