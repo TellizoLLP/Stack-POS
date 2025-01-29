@@ -129,7 +129,7 @@
                                 <span class="text-xs text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="flex flex-col gap-2.5">
+                        <div class="flex flex-col col-span-2 gap-2.5">
                             <div class="flex gap-1 flex-center">
                                 <label class="font-semibold text-gray-900 text-2sm">
                                     {{ $lang->data['email'] ?? 'Email' }}

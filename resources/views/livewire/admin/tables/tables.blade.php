@@ -42,8 +42,11 @@
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td><span
-                                                class="badge {{ $item->is_active == 1 ? 'bg-success' : 'bg-secondary' }}">{{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}</span>
+                                        <td><span class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-secondary text-white' }}">
+    {{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}
+</span>
+
+
                                         </td>
                                         <td>
                                             <div class="flex items-center gap-3">
