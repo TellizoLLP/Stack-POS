@@ -52,7 +52,7 @@
                     {{ $lang->data['application_logo'] ?? 'Application Logo' }}
                 </label>
                 <div class="grow">
-                    <input class="input" placeholder="" type="file" wire:model='logo' />
+                    <input class="input pt-3" placeholder="" type="file" wire:model='logo' />
                     @error('logo')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -63,7 +63,7 @@
                     {{ $lang->data['fav_icon'] ?? 'Fav Icon ' }}
                 </label>
                 <div class="grow">
-                    <input class="input" type="file" class="form-control" wire:model='favicon' />
+                    <input class="input pt-3" type="file" class="form-control" wire:model='favicon' />
                     @error('favicon')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
