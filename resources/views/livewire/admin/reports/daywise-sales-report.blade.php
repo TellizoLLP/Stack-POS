@@ -10,13 +10,11 @@
                             {{$lang->data['day_wise_report'] ?? 'Day Wise Sales Report'}}
                         </h1>
                     </div>
-                    
-                    
                     <div class="flex items-center gap-1">
                         @if (Auth::user()->can('search_customer'))
                             <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer" href="#"
                                 wire:click="resetFields">
-                                {{$lang->data['search'] ?? 'Search'}}
+                               {{$lang->data['search'] ?? 'Search'}}
                             </a>
                         @endif
                     </div>
@@ -24,6 +22,27 @@
             </div>
         </div>
     </div>
+    <div class="flex flex-wrap gap-4">
+        <div class="flex flex-col p-4 >
+            <label for="start_date" class="font-medium text-gray-700">
+                {{$lang->data['start_date'] ?? 'Start Date'}}
+            </label>
+            <input type="date" class="form-control text-sm" id="start_date" wire:model="start_date">
+        </div>
+        <div class="flex flex-col p-4">
+            <label for="end_date" class="font-medium text-gray-700">
+                {{$lang->data['end_date'] ?? 'End Date'}}
+            </label>
+            <input type="date" class="form-control text-sm" id="end_date" wire:model="end_date">
+        </div>
+        <div class="flex items-center justify-center ">
+            <a href="#" class="btn btn-primary btn-sm" wire:click="getData">
+                {{$lang->data['search'] ?? 'Search'}}
+            </a>
+        </div>
+    </div>
+    
+</div>
     <main class="w-full grow">
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">
             <div class="card-body">
