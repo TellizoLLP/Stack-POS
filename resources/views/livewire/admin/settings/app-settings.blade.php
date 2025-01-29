@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="card pb-2.5">
+    
         {{-- <div class="card-header" id="webhooks">
             <h3 class="card-title">
                 Webhooks
@@ -71,33 +71,13 @@
             </div>
             <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    {{ $lang->data['application_logo'] ?? 'Application Logo' }}
+                    {{ $lang->data['contact_number'] ?? 'Contact Number' }}
                 </label>
                 <div class="grow">
-                    <input class="input" placeholder="" type="file" wire:model='logo' />
-                    @error('logo')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-            <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
-                <label class="form-label max-w-56">
-                    {{ $lang->data['application_logo'] ?? 'Application Logo' }}
-                </label>
-                <div class="grow">
-                    <input class="input" placeholder="" type="file" wire:model='logo' />
-                    @error('logo')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-            <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
-                <label class="form-label max-w-56">
-                    {{ $lang->data['application_logo'] ?? 'Application Logo' }}
-                </label>
-                <div class="grow">
-                    <input class="input" placeholder="" type="file" wire:model='logo' />
-                    @error('logo')
+                    <input class="input"
+                        placeholder="{{ $lang->data['enter_contact_number'] ?? 'Enter Contact Number' }}"
+                        type="number" wire:model='phone' />
+                    @error('phone')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -105,47 +85,59 @@
 
             <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    Event Type
+                    {{ $lang->data['email'] ?? 'Email' }}
                 </label>
                 <div class="grow">
-                    <select class="select">
-                        <option>
-                            All Events
-                        </option>
-                        <option>
-                            Push Webhooks
-                        </option>
-                        <option>
-                            Pipe Webhook
-                        </option>
-                        <option>
-                            Plugin Webhooks
-                        </option>
-                    </select>
+                    <input class="input" type="email"
+                        placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}" wire:model='email' />
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
-            <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5 mb-2.5">
+            <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
                 <label class="form-label max-w-56">
-                    Custom Headers
+                    {{ $lang->data['currency_symbol'] ?? 'Currency Symbol' }}
                 </label>
                 <div class="grow">
-                    <label class="switch">
-                        <span class="switch-label">
-                            Use Custom Header
-                        </span>
-                        <input checked="" type="checkbox" value="1" />
-                    </label>
+                    <input class="input" type="text"
+                        placeholder="{{ $lang->data['enter_currency_symbol'] ?? 'Enter Currency Symbol' }}"
+                        wire:model='currency_symbol' />
+                    @error('currency_symbol')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
+                <label class="form-label max-w-56">
+                    {{ $lang->data['tax_percentage'] ?? 'Tax Percentage' }}
+                </label>
+                <div class="grow">
+                    <input class="input" type="text"
+                        placeholder="{{ $lang->data['enter_tax_percentage'] ?? 'Enter Tax Percentage' }}"
+                        wire:model='tax_percentage' />
+                    @error('tax_percentage')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
+                <label class="form-label max-w-56">
+                    {{ $lang->data['address'] ?? 'Address' }}
+                </label>
+                <div class="grow">
+                    <textarea class="input pt-3 resize-none" type="text" rows="4" wire:model='address'></textarea>
                 </div>
             </div>
             <div class="flex justify-end">
-                <button class="btn btn-primary">
-                    Save Changes
+                <button class="btn btn-primary" type="submit" wire:click.prevent='save'>
+                    {{ $lang->data['save_changes'] ?? 'Save Changes' }}
                 </button>
             </div>
         </div>
-    </div>
+    
 </div>
-</div>
+
 
 
 
