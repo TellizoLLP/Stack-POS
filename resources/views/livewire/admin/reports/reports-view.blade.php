@@ -21,14 +21,14 @@
                     <div class="flex flex-col gap-2.5">
                         <i class="ki-filled ki-setting-2 text-2xl text-primary mb-1.5">
                         </i>
-                        <div class="flex flex-col gap-3">
+                           <div class="flex flex-col gap-3">
                             <h3 class="text-base font-medium leading-none text-gray-900">
                                 <a href="{{ route('admin.customer_report') }}">
                                     Customer Report
                                 </a>
                             </h3>
                             <div class="text-2sm text-gray-700 leading-5">
-                                Configure and manage your application settings to customize your user experience and preferences.
+                                Track customer insights, activities, and generate reports for better management.
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 </a>
                             </h3>
                             <div class="text-2sm text-gray-700 leading-5">
-                                Update your personal information, change passwords, and manage your account preferences.
+                                Track daily sales, analyze performance, and generate reports for trends
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 </a>
                             </h3>
                             <div class="text-2sm text-gray-700 leading-5">
-                                Update your personal information, change passwords, and manage your account preferences.
+                                Track item sales, analyze performance, and generate inventory reports.
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                 </a>
                             </h3>
                             <div class="text-2sm text-gray-700 leading-5">
-                                Update your personal information, change passwords, and manage your account preferences.
+                                Analyze sales performance, trends, and generate reports to optimize strategy.
                             </div>
                         </div>
                     </div>
