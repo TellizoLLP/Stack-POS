@@ -14,6 +14,7 @@
     <link href="{{ asset('/assets/css/style.css') }}" rel="stylesheet">
     @livewireScripts()
     @livewireStyles()
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default" class="login-bg">
     {{$slot}}

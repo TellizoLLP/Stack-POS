@@ -1,20 +1,14 @@
 <?php return array (
-  'facade/ignition' => 
+  'barryvdh/laravel-dompdf' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Facade\\Ignition\\IgnitionServiceProvider',
-    ),
     'aliases' => 
     array (
-      'Flare' => 'Facade\\Ignition\\Facades\\Flare',
+      'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+      'Pdf' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
     ),
-  ),
-  'fruitcake/laravel-cors' => 
-  array (
     'providers' => 
     array (
-      0 => 'Fruitcake\\Cors\\CorsServiceProvider',
+      0 => 'Barryvdh\\DomPDF\\ServiceProvider',
     ),
   ),
   'intervention/image' => 
@@ -30,13 +24,13 @@
   ),
   'jackiedo/dotenv-editor' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Jackiedo\\DotenvEditor\\DotenvEditorServiceProvider',
-    ),
     'aliases' => 
     array (
       'DotenvEditor' => 'Jackiedo\\DotenvEditor\\Facades\\DotenvEditor',
+    ),
+    'providers' => 
+    array (
+      0 => 'Jackiedo\\DotenvEditor\\DotenvEditorServiceProvider',
     ),
   ),
   'laravel/sail' => 
@@ -62,13 +56,24 @@
   ),
   'livewire/livewire' => 
   array (
+    'aliases' => 
+    array (
+      'Livewire' => 'Livewire\\Livewire',
+    ),
     'providers' => 
     array (
       0 => 'Livewire\\LivewireServiceProvider',
     ),
+  ),
+  'mews/purifier' => 
+  array (
     'aliases' => 
     array (
-      'Livewire' => 'Livewire\\Livewire',
+      'Purifier' => 'Mews\\Purifier\\Facades\\Purifier',
+    ),
+    'providers' => 
+    array (
+      0 => 'Mews\\Purifier\\PurifierServiceProvider',
     ),
   ),
   'nesbot/carbon' => 
@@ -83,6 +88,35 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    ),
+  ),
+  'nunomaduro/termwind' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    ),
+  ),
+  'simplesoftwareio/simple-qrcode' => 
+  array (
+    'aliases' => 
+    array (
+      'QrCode' => 'SimpleSoftwareIO\\QrCode\\Facades\\QrCode',
+    ),
+    'providers' => 
+    array (
+      0 => 'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider',
+    ),
+  ),
+  'spatie/laravel-ignition' => 
+  array (
+    'aliases' => 
+    array (
+      'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
+    ),
+    'providers' => 
+    array (
+      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
     ),
   ),
 );
