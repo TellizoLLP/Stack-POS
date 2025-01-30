@@ -118,20 +118,18 @@
         </div>
     </div>
 </div>
-<div class="mb-3">
+<div class="mb-5">
     <div class="form-check form-switch">
-        <input class="checkbox checkbox-sm form-check-input" type="checkbox" id="isVeg" wire:model="is_veg">
-        <label class="form-check-label" for="isVeg">{{ $lang->data['is_veg'] ?? 'isVeg' }}</label>
-    </div>
+    <input class="checkbox checkbox-sm " type="checkbox" id="isVeg" wire:model="is_veg">
+    <label for="isVeg">{{ $lang->data['is_veg'] ?? 'isVeg' }}</label>
+</div>
 
 
 </div>
 <div class="mb-3">
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="isActive" wire:model="is_active">
-        <label class="form-check-label"
-            for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-    </div>
+    <input class="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" type="checkbox" id="isActive" wire:model="is_active">
+<label for="isActive" class="ml-2 text-sm text-gray-700">{{ $lang->data['is_active'] ?? 'isActive' }}</label>   </div>
 </div>
 <div class="flex justify-end gap-4 px-5">
     <button class="justify-center btn btn-primary" :disabled="isUploading == true"

@@ -21,49 +21,55 @@
     <div class="card">
         <div class="card-body">
             <form>
-                <div class="grid gap-5 px-0 py-5 ">
+                <div class="grid gap-5 px-0 py-5">
                     <div class="grid grid-cols-2 gap-5 px-4">
+                        <!-- Staff Name -->
                         <div class="flex flex-col gap-2.5">
-                            <label class="font-semibold text-gray-900 text-2sm">
+                            <label class="form-label">
                                 {{ $lang->data['staff_name'] ?? 'Staff Name' }} <span class="text-red-500">*</span>
                             </label>
                             <input type="text" class="input" placeholder="{{ $lang->data['enter_staff_name'] ?? 'Enter Staff Name' }}" wire:model="name" />
                             @error('name') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                         </div>
 
+                        <!-- Contact Number -->
                         <div class="flex flex-col gap-2.5">
-                            <label class="font-semibold text-gray-900 text-2sm">
+                            <label class="form-label">
                                 {{ $lang->data['contact_number'] ?? 'Contact Number' }} <span class="text-red-500">*</span>
                             </label>
                             <input type="number" class="input" placeholder="{{ $lang->data['enter_contact_number'] ?? 'Enter Contact Number' }}" wire:model="phone" />
                             @error('phone') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                         </div>
 
+                        <!-- Email -->
                         <div class="flex flex-col gap-2.5">
-                            <label class="font-semibold text-gray-900 text-2sm">
+                            <label class="form-label">
                                 {{ $lang->data['email'] ?? 'Email' }}
                             </label>
                             <input type="text" class="input" placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}" wire:model="email" />
                             @error('email') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                         </div>
 
+                        <!-- Password -->
                         <div class="flex flex-col gap-2.5">
-                            <label class="font-semibold text-gray-900 text-2sm">
+                            <label class="form-label">
                                 {{ $lang->data['password'] ?? 'Password' }}
                             </label>
                             <input type="text" class="input" placeholder="{{ $lang->data['enter_password'] ?? 'Enter Password' }}" wire:model="password" />
                             @error('password') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                         </div>
 
+                        <!-- Address -->
                         <div class="flex flex-col gap-2.5 col-span-2">
-                            <label class="font-semibold text-gray-900 text-2sm">
+                            <label class="form-label">
                                 {{ $lang->data['address'] ?? 'Address' }}
                             </label>
                             <textarea placeholder="{{ $lang->data['address'] ?? 'Address' }}" wire:model="address" class="p-3 resize-none input min-h-20"></textarea>
                         </div>
 
+                        <!-- Permissions -->
                         <div class="flex flex-col gap-2.5 col-span-2">
-                            <label class="font-semibold text-gray-900 text-2sm">
+                            <label class="form-label">
                                 {{ $lang->data['permissions'] ?? 'Permissions' }}
                             </label>
                             <div class="row px-2">
@@ -103,8 +109,8 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" wire:click.prevent="save">
-                        {{ $lang->data['save'] ?? 'Save' }}
-                    </button>
+                    {{ $lang->data['save'] ?? 'Save' }}
+                </button>
             </form>
         </div>
     </div>

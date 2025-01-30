@@ -12,10 +12,10 @@
                     </div>
                     <div class="flex items-center gap-1">
                         @if (Auth::user()->can('add_table'))
-                            <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCategory" href="#"
-                                wire:click="resetFields">
-                                {{ $lang->data['new_table'] ?? 'New Table' }}
-                            </a>
+                        <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCategory" href="#"
+                            wire:click="resetFields">
+                            {{ $lang->data['new_table'] ?? 'New Table' }}
+                        </a>
                         @endif
                     </div>
                 </div>
@@ -39,60 +39,60 @@
                             </thead>
                             <tbody>
                                 @foreach ($tables as $item)
-                                    <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td><span class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-secondary text-white' }}">
-    {{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}
-</span>
+                                <tr>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td><span class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-secondary text-white' }}">
+                                            {{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}
+                                        </span>
 
 
-                                        </td>
-                                        <td>
-                                            <div class="flex items-center gap-3">
-                                                <div>
-                                                    @if (Auth::user()->can('edit_table'))
-                                                        <a class="menu-link" data-modal-toggle="#EditModalCategory">
-                                                            <span class="menu-icon">
-                                                                <i class="ki-filled ki-pencil text-lg hover:text-blue-500"
-                                                                    wire:click='edit({{ $item }})'>
-                                                                </i>
-                                                            </span>
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                                <div>
-                                                    @if (Auth::user()->can('delete_table'))
-                                                        <a class="menu-link">
-                                                            <i class="ki-filled ki-trash text-lg hover:text-red-500"
-                                                                wire:click="delete({{ $item }})">
-                                                            </i>
-                                                        </a>
-                                                    @endif
-                                                </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex items-center gap-3">
+                                            <div>
+                                                @if (Auth::user()->can('edit_table'))
+                                                <a class="menu-link" data-modal-toggle="#EditModalCategory">
+                                                    <span class="menu-icon">
+                                                        <i class="ki-filled ki-pencil text-lg hover:text-blue-500"
+                                                            wire:click='edit({{ $item }})'>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                @endif
                                             </div>
-                                        </td>
-                                        {{-- <td>
+                                            <div>
+                                                @if (Auth::user()->can('delete_table'))
+                                                <a class="menu-link">
+                                                    <i class="ki-filled ki-trash text-lg hover:text-red-500"
+                                                        wire:click="delete({{ $item }})">
+                                                    </i>
+                                                </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {{-- <td>
                                             @if (Auth::user()->can('edit_table'))
                                                 <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#EditModalCategory"
                                                     wire:click='edit({{ $item }})'>{{ $lang->data['edit'] ?? 'Edit' }}</a>
-                                            @endif
-                                            @if (Auth::user()->can('delete_table'))
-                                                <a href="#" class="btn btn-sm btn-danger"
-                                                    wire:click="delete({{ $item }})">{{ $lang->data['delete'] ?? 'Delete' }}</a>
-                                            @endif
+                                    @endif
+                                    @if (Auth::user()->can('delete_table'))
+                                    <a href="#" class="btn btn-sm btn-danger"
+                                        wire:click="delete({{ $item }})">{{ $lang->data['delete'] ?? 'Delete' }}</a>
+                                    @endif
 
-                                        </td> --}}
-                                    </tr>
+                                    </td> --}}
+                                </tr>
                                 @endforeach
 
 
                             </tbody>
                         </table>
                         @if (count($tables) == 0)
-                            <x-no-data-component
-                                message="{{ $lang->data['no_tables_found'] ?? 'No tables were found..' }}" />
+                        <x-no-data-component
+                            message="{{ $lang->data['no_tables_found'] ?? 'No tables were found..' }}" />
                         @endif
                     </div>
                 </div>
@@ -123,15 +123,14 @@
                                     wire:model="name" />
                             </label>
                             @error('name')
-                                <span class="text-xs text-red-500">{{ $message }}</span>
+                            <span class="text-xs text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="flex flex-col gap-2.5 px-4">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="isActive" wire:model="is_active">
-                            <label class="form-check-label"
-                                for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
+                        <input class="checkbox checkbox-sm" type="checkbox" id="isActive" wire:model="is_active">
+                        <label for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
                         </div>
                     </div>
 
@@ -171,15 +170,14 @@
                                     wire:model="name" />
                             </label>
                             @error('name')
-                                <span class="text-xs text-red-500">{{ $message }}</span>
+                            <span class="text-xs text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="flex flex-col gap-2.5 px-4">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="isActive" wire:model="is_active">
-                            <label class="form-check-label"
-                                for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
+                        <input class="checkbox checkbox-sm" type="checkbox" id="isActive" wire:model="is_active">
+                        <label for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
                         </div>
                     </div>
 
@@ -197,6 +195,3 @@
         </div>
     </main>
 </div>
-
-
-
