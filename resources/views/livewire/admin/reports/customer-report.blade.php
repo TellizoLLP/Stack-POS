@@ -6,7 +6,12 @@
                     <div class="flex flex-wrap items-center gap-1 lg:gap-5">
                         <h1 class="text-lg font-medium text-gray-900">{{ $lang->data['customer_report'] ?? 'Customer Report' }}</h1>
                     </div>
+                   
                      <div class="flex items-center gap-3">
+                        <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
+                        href="{{ route('admin.report_view') }}">
+                        {{ $lang->data['back'] ?? 'Back' }}
+                    </a>
                         <div class="col-md-3 gap-2">
                             <label class="input input-sm">
                                 <input type="text" class="" placeholder="{{$lang->data['all_customers'] ?? 'All Customers'}}"

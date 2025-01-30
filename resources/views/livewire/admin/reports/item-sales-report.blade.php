@@ -12,6 +12,10 @@
                         </h1>
                     </div>
                     <div class="flex items-center gap-1">
+                        <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
+                        href="{{ route('admin.report_view') }}">
+                        {{ $lang->data['back'] ?? 'Back' }}
+                    </a>
                         <a class="btn btn-light btn-sm"
                             wire:click='getData'>
                             {{ $lang->data['search'] ?? 'Search' }}
@@ -27,8 +31,8 @@
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">
             <div class="card-body">
 
-                <div class="card-header p-3">
-                    <div class="flex flex-wrap gap-4">
+                {{-- <div class="card-header p-3"> --}}
+                    <div class="flex flex-wrap gap-3">
 
                         <div class="flex flex-col p-4">
                             <label>{{ $lang->data['start_date'] ?? 'Start Date' }}</label>
@@ -46,7 +50,7 @@
                                 placeholder="{{ $lang->data['all_items'] ?? 'All Items' }}" wire:model='search'/>
                         </div>
                     </div>
-                </div>
+                {{-- </div> --}}
 
 
                 <div class="card-body p-0">
