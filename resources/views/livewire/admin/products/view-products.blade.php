@@ -45,7 +45,8 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ getCurrency() }}{{ $item->price }}</td>
-                                    <td><span class="badge badge-sm badge-outline">{{ $item->category->name }}</span>
+                                    <td><span class="badge badge-sm badge-outline 'badge-seccondary text-white'">{{ $item->category->name }}</span>
+
                                     </td>
                                     <td>
                                         <span class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-secondary text-white' }}">
