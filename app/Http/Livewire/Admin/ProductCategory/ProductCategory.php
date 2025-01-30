@@ -60,6 +60,7 @@ class ProductCategory extends Component
         $category->description = $this->description;
         $category->is_active = $this->is_active;
         $category->save();
+        $this->category = null;
         $this->emit('closemodal');
         $this->dispatchBrowserEvent(
             'alert', ['type' => 'success',  'message' => 'Category has been updated!']);
@@ -85,5 +86,6 @@ class ProductCategory extends Component
         $this->name = '';
         $this->description = '';
         $this->is_active = 1;
+        $this->category = null;
     }
 }

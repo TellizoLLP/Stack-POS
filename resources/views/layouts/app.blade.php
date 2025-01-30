@@ -49,7 +49,6 @@
 
     <script>
         "use strict";
-        document.addEventListener('livewire:init', () => {
             Livewire.on('closemodal', (event) => {
                 let modals = document.querySelectorAll('.modal.open')
                 for (let i = 0; i < modals.length; i++) {
@@ -57,7 +56,6 @@
                     modal.hide()
                 }
             });
-        });
     </script>
     <script>
         document.addEventListener('livewire:init', () => {

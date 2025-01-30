@@ -59,8 +59,7 @@
                                         </td>
                                         <td>
                                             @if (Auth::user()->can('edit_category'))
-                                                <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#EditModalCategory"
+                                                <a href="#" class="btn btn-sm btn-primary" data-modal-toggle="#modalCategory"
                                                     wire:click='edit({{ $item }})'>{{ $lang->data['edit'] ?? 'Edit' }}</a>
                                             @endif
 
