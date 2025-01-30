@@ -29,7 +29,7 @@
             <a class=" @if(Request::is('admin/orders')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-500 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
                 data-tooltip="" data-tooltip-placement="right" href="{{ route('admin.orders') }}">
                 <span class="menu-icon">
-                    <i class="ki-filled ki-grid"></i>
+                    <i class="ki-filled ki-menu"></i>
                 </span>
                 <span class="tooltip">
                     {{$lang->data['orders'] ?? 'Orders'}}
@@ -40,7 +40,7 @@
             <a class=" @if(Request::is('admin/orders/status-screen')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
                 data-tooltip="" data-tooltip-placement="right"  href="{{ route('admin.order_status_screen') }}">
                 <span class="menu-icon">
-                    <i class="ki-filled ki-check-circle"></i>
+                    <i class="ki-filled ki-questionnaire-tablet"></i>
                 </span>
                 <span class="tooltip">
                     {{$lang->data['order_status_screen'] ?? 'Order Status Screen'}}
@@ -74,8 +74,7 @@
             <a class=" @if(Request::is('admin/tables')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
                 data-tooltip="" data-tooltip-placement="right"   href="{{ route('admin.tables') }}">
                 <span class="menu-icon">
-                    <i class="ki-filled ki-grid">
-                    </i>
+                    <i class="ki-filled ki-slider-vertica"></i>
                 </span>
                 <span class="tooltip">
                     {{$lang->data['table']??'Table'}}
@@ -86,7 +85,7 @@
             <a class=" @if(Request::is('admin/staffs')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
                 data-tooltip="" data-tooltip-placement="right"   href="{{ route('admin.staffs') }}">
                 <span class="menu-icon">
-                    <i class="ki-filled ki-users"></i>
+                    <i class="ki-filled ki-user"></i>
                 </span>
                 <span class="tooltip">
                     {{$lang->data['staffs']??'Staffs'}}
@@ -97,7 +96,7 @@
             <a class=" @if(Request::is('admin/reports')) active  @endif btn btn-icon btn-icon-lg rounded-full size-10 border border-transparent text-gray-600 hover:bg-light hover:text-primary hover:border-gray-300 [.active&amp;]:bg-light [.active&amp;]:text-primary [.active&amp;]:border-gray-300"
                 data-tooltip="" data-tooltip-placement="right" href="{{route('admin.report_view')}}">
                 <span class="menu-icon">
-                    <i class="ki-filled ki-shop"></i>
+                    <i class="ki-filled ki-book-square"></i>
                 </span>
                 <span class="tooltip">
                     {{$lang->data['reports']??'Reports'}}
