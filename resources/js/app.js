@@ -1,4 +1,3 @@
-require('./bootstrap');
 import Alpine from 'alpinejs'
 import Swal from 'sweetalert2'
 

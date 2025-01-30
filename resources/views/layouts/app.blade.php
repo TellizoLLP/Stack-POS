@@ -41,11 +41,11 @@
             </div>
 
     </div>
-    <script src="{{ asset('new_assets/js/core.bundle.js') }}"></script>
     <script src="{{ asset('new_assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('new_assets/js/widgets/general.js') }}"></script>
     <script src="{{ asset('new_assets/js/jquery-3.7.1.min.js') }}"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script src="{{ asset('new_assets/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('new_assets/js/core.bundle.js') }}"></script>
+    <script src="{{ asset('new_assets/js/widgets/general.js') }}"></script>
 
     <script>
         "use strict";

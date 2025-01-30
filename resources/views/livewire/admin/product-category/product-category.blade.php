@@ -12,8 +12,8 @@
                     </div>
                     <div class="flex items-center gap-1">
                         @if (Auth::user()->can('add_category'))
-                            <a href="#" class="btn btn-light btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#ModalCategory" wire:click="resetFields">
+                            <a href="#" class="btn btn-light btn-sm" 
+                                data-modal-toggle="#modalCategory" wire:click="resetFields">
                                 {{ $lang->data['new_category'] ?? 'New Category' }}
                             </a>
                         @endif
@@ -79,97 +79,63 @@
                         @endif
                     </div>
 
-                    <div class="modal fade" id="ModalCategory" tabindex="-1" role="dialog" aria-hidden="true"
-                        wire:ignore.self>
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">{{ $lang->data['add_new_category'] ?? 'Add New Category' }}
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label class="form-label">{{ $lang->data['name'] ?? 'Name' }} <span
-                                                class="text-danger"><strong>*</strong></span></label>
-                                        <input type="text" class="form-control"
-                                            placeholder="{{ $lang->data['name'] ?? 'Name' }}" wire:model="name">
-                                        @error('name')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">{{ $lang->data['description'] ?? 'Description' }}
-                                        </label>
-                                        <textarea class="form-control resize-none" rows="3"
-                                            placeholder="{{ $lang->data['description'] ?? 'Description' }}" wire:model="description"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="isActive"
-                                                wire:model="is_active">
-                                            <label class="form-check-label"
-                                                for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">{{ $lang->data['close'] ?? 'Close' }}</button>
-                                    <button type="button" class="btn btn-success"
-                                        wire:click='create'>{{ $lang->data['save'] ?? 'Save' }}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-
-                    <div class="modal fade" id="EditModalCategory" tabindex="-1" role="dialog" aria-hidden="true"
-                        wire:ignore.self>
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">{{ $lang->data['add_new_category'] ?? 'Add New Category' }}
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label class="form-label">{{ $lang->data['name'] ?? 'Name' }} <span
-                                                class="text-danger"><strong>*</strong></span></label>
-                                        <input type="text" class="form-control"
-                                            placeholder="{{ $lang->data['name'] ?? 'Name' }}" wire:model="name">
-                                        @error('name')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">{{ $lang->data['description'] ?? 'Description' }}
-                                        </label>
-                                        <textarea class="form-control resize-none" rows="3"
-                                            placeholder="{{ $lang->data['description'] ?? 'Description' }}" wire:model="description"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="isActive"
-                                                wire:model="is_active">
-                                            <label class="form-check-label"
-                                                for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">{{ $lang->data['close'] ?? 'Close' }}</button>
-                                    <button type="button" class="btn btn-success"
-                                        wire:click="update">{{ $lang->data['save'] ?? 'Save' }}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
     </main>
+
+    <div class="modal" data-modal="true" data-modal-disable-scroll="false" id="modalCategory" wire:ignore.self>
+        <div class="modal-content max-w-[500px] top-5 lg:top-[15%]">
+            <div class="modal-header pr-2.5">
+                <h3 class="modal-title">
+                    Category
+                </h3>
+                <button class="btn btn-sm btn-icon btn-light btn-clear shrink-0" data-modal-dismiss="true">
+                    <i class="ki-filled ki-cross">
+                    </i>
+                </button>
+            </div>
+            <div class="modal-body grid gap-5 px-0 py-5">
+                <div class="flex flex-col px-5 gap-2.5">
+                    <div class="flex flex-center gap-1">
+                        <label class="text-gray-900 font-semibold text-2sm">
+                            Category Name
+                        </label>
+                    </div>
+                    <label class="input">
+                        <input type="text" value="" placeholder="Enter Name" wire:model="name"></input>
+                    </label>
+                    @error('name')
+                        <span class="text-red-500 text-xs font-medium">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="flex flex-col px-5 gap-2.5">
+                    <div class="flex flex-col gap-2.5 col-span-3">
+                        <label class="text-gray-900 font-semibold text-2sm">Description</label>
+                        <textarea wire:model="description" class="textarea" placeholder="Enter the description"></textarea>
+                    </div>
+                    
+                </div>
+                <div class="flex flex-col px-5 gap-2.5">
+                    <div class="flex items-center  gap-1">
+                        <label class="text-gray-900 font-semibold text-2sm">
+                            Is Active :
+                        </label>
+                        <div class="switch switch-sm">
+                            <input name="param" type="checkbox" wire:model="is_active" checked="">
+                        </div>
+                    </div>
+                </div>
+                <div class="border-b border-b-gray-200">
+                </div>
+                <div class="flex flex-col px-5 gap-4">
+                    <button class="btn btn-primary justify-center"
+                        @if ($category  ) wire:click.prevent="update" @else wire:click.prevent="create" @endif>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
