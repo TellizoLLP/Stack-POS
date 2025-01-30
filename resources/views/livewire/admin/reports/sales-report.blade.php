@@ -10,23 +10,19 @@
                         </h1>
                     </div>
                     <div class="flex items-center gap-1">
-                        @if (Auth::user()->can('search_customer'))
-                            <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer" href="#"
-                               wire:click="resetFields">
-                                {{ $lang->data['search_customer'] ?? 'Search Customer' }}
+                            <a class="btn btn-light btn-sm "
+                            wire:click="getData">
+                            {{$lang->data['search'] ?? 'Search'}}
                             </a>
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <main class="w-full grow">
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">
             <div class="card-body">
                 <div>
-                
                     <div class="flex flex-wrap gap-4">
                         <div class="flex flex-col p-4">
                             <label for="start_date" class="font-medium text-gray-700">
@@ -44,22 +40,14 @@
                             <label for="order_type" class="font-medium text-gray-700">
                                 {{$lang->data['order_type'] ?? 'Order Type'}}
                             </label>
-                            <select class="form-select text-sm" id="order_type" wire:model="order_type">
+                            <select class="text-sm" id="order_type" wire:model="order_type">
                                 <option class="select-box" value="ALL">{{$lang->data['all_types'] ?? 'All Types'}}</option>
                                 <option class="select-box" value="1">{{$lang->data['dining'] ?? 'Dinning'}}</option>
                                 <option class="select-box" value="2">{{$lang->data['takeaway'] ?? 'Takeaway'}}</option>
                                 <option class="select-box" value="3">{{$lang->data['delivery'] ?? 'Delivery'}}</option>
                             </select>
                         </div>
-                        <div class="flex items-center justify-center ">
-                            <a href="#" class="btn btn-primary btn-sm" wire:click="getData">
-                                {{$lang->data['search'] ?? 'Search'}}
-                            </a>
-                        </div>
                     </div>
-                    
-
-        
                     <div class="scrollable-x-auto mt-5">
                         <table class="table table-auto table-border">
                             <thead>
@@ -109,7 +97,6 @@
                             <x-no-data-component message="{{$lang->data['no_orders_found'] ?? 'No orders were found..'}}" />
                         @endif
                     </div>
-                    
                 </div>
             </div>
         </div>
