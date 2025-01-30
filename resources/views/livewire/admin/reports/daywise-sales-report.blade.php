@@ -11,6 +11,10 @@
                         </h1>
                     </div>
                     <div class="flex items-center gap-1">
+                        <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
+                        href="{{ route('admin.report_view') }}">
+                        {{ $lang->data['back'] ?? 'Back' }}
+                    </a>
                         <a class="btn btn-light btn-sm" wire:click="getData">
                             {{ $lang->data['search'] ?? 'Search' }}
                         </a>
