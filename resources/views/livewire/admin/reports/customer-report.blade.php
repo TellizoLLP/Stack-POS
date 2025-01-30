@@ -6,20 +6,19 @@
                     <div class="flex flex-wrap items-center gap-1 lg:gap-5">
                         <h1 class="text-lg font-medium text-gray-900">{{ $lang->data['customer_report'] ?? 'Customer Report' }}</h1>
                     </div>
-                     <div class="flex items-center gap-4">
+                     <div class="flex items-center gap-3">
                         <div class="col-md-3 gap-2">
-                            <label>{{$lang->data['search_customer'] ?? 'Search Customer'}}</label>
-                            <input type="text" class="form-control" placeholder="{{$lang->data['all_customers'] ?? 'All Customers'}}" wire:model='search'>
+                            <label class="input input-sm">
+                                <input type="text" class="" placeholder="{{$lang->data['all_customers'] ?? 'All Customers'}}"
+                                    wire:model="search" />
+                            </label>
                         </div>
-
-                        <a href="#" class="btn btn-primary text-sm" wire:click='getData'>{{$lang->data['search'] ?? 'Search'}}</a>
-
+                        <a class="btn btn-light btn-sm" wire:click='getData'>{{$lang->data['search'] ?? 'Search'}}</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <main class="w-full grow">
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">
             <div class="card-body">
