@@ -19,70 +19,69 @@
                 </h3>
                 <span class="text-sm text-gray-400 font-medium px-2.5 hidden md:inline">
                 </span>
-                <div class="menu menu-default" data-menu="true">
-                    <div class="menu-item" data-menu-item-offset="0, 10px" data-menu-item-placement="bottom-start"
-                        data-menu-item-toggle="dropdown" data-menu-item-trigger="hover">
-                        <button class="menu-toggle text-gray-900 font-medium">
-                            Account
-                            <span class="menu-arrow">
-                                <i class="ki-filled ki-down">
-                                </i>
-                            </span>
-                        </button>
-                        <div class="menu-dropdown w-48 py-2">
-                            <div class="menu-item">
-                                <a class="menu-link" href="public-profile/profiles/default.html" tabindex="0">
-                                    <span class="menu-icon">
-                                        <i class="ki-filled ki-profile-circle">
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">
-                                        Public Profile
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="menu-item active">
-                                <a class="menu-link" href="index.html" tabindex="0">
-                                    <span class="menu-icon">
-                                        <i class="ki-filled ki-setting-2">
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">
-                                        Account
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link" href="network/get-started.html" tabindex="0">
-                                    <span class="menu-icon">
-                                        <i class="ki-filled ki-users">
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">
-                                        Network
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link" href="authentication/get-started.html" tabindex="0">
-                                    <span class="menu-icon">
-                                        <i class="ki-filled ki-security-user">
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">
-                                        Authentication
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- End of Logo -->
         <!-- Topbar -->
-        <div class="flex items-center lg:gap-3.5">
-          
+        <div class="flex items-center lg:gap-3.5">  
+            <div class="menu menu-default" data-menu="true">
+                <div class="menu-item" data-menu-item-offset="0, 10px" data-menu-item-placement="bottom-start"
+                    data-menu-item-toggle="dropdown" data-menu-item-trigger="hover">
+                    <button class="menu-toggle text-gray-900 font-medium">
+                        Account
+                        <span class="menu-arrow">
+                            <i class="ki-filled ki-down">
+                            </i>
+                        </span>
+                    </button>
+                    <div class="menu-dropdown w-48 py-2">
+                        <div class="menu-item active">
+                            <a class="menu-link" href="public-profile/profiles/default.html" tabindex="0">
+                                <span class="menu-icon">
+                                    <i class="ki-filled ki-profile-circle">
+                                    </i>
+                                </span>
+                                <span class="menu-title">
+                                    Public Profile
+                                </span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="index.html" tabindex="0">
+                                <span class="menu-icon">
+                                    <i class="ki-filled ki-setting-2">
+                                    </i>
+                                </span>
+                                <span class="menu-title">
+                                    Account
+                                </span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="network/get-started.html" tabindex="0">
+                                <span class="menu-icon">
+                                    <i class="ki-filled ki-users">
+                                    </i>
+                                </span>
+                                <span class="menu-title">
+                                    Network
+                                </span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="authentication/get-started.html" tabindex="0">
+                                <span class="menu-icon">
+                                    <i class="ki-filled ki-security-user">
+                                    </i>
+                                </span>
+                                <span class="menu-title">
+                                    Authentication
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="menu" data-menu="true">
                 <div class="menu-item" data-menu-item-offset="0px, 9px" data-menu-item-placement="bottom-end"
                     data-menu-item-placement-rtl="bottom-start" data-menu-item-toggle="dropdown"
