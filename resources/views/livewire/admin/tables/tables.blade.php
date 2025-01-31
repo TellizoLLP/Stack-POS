@@ -125,10 +125,21 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="flex flex-col gap-2.5 px-4">
+                    {{-- <div class="flex flex-col gap-2.5 px-4">
                         <div class="form-check form-switch">
                         <input class="checkbox checkbox-sm" type="checkbox" id="isActive" wire:model="is_active">
                         <label for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
+                        </div>
+                    </div> --}}
+                    <div class="flex flex-col  gap-2.5 px-4">
+                        <div class="flex items-center  gap-2">
+                            <div class="switch switch-sm">
+                                <input name="param" type="checkbox" id="isActive" wire:model="is_active"
+                                    checked="">
+                            </div>
+                            <label class="font-semibold text-gray-900 text-2sm ">
+                                {{ $lang->data['is_active'] ?? 'isActive' }}
+                            </label>
                         </div>
                     </div>
 
@@ -172,10 +183,15 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="flex flex-col gap-2.5 px-4">
-                        <div class="form-check form-switch">
-                        <input class="checkbox checkbox-sm" type="checkbox" id="isActive" wire:model="is_active">
-                        <label for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
+                    <div class="flex flex-col  gap-2.5 px-4">
+                        <div class="flex items-center  gap-2">
+                            <div class="switch switch-sm">
+                                <input name="param" type="checkbox" id="isActive" wire:model="is_active"
+                                    checked="">
+                            </div>
+                            <label class="font-semibold text-gray-900 text-2sm ">
+                                {{ $lang->data['is_active'] ?? 'isActive' }}
+                            </label>
                         </div>
                     </div>
 
