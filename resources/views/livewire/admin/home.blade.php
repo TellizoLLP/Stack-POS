@@ -165,10 +165,10 @@
                                         <td>{{ $order->customer_name_fn }}</td>
                                         <td class="d-none d-xl-table-cell">
                                             <span
-                                                class="badge {{ $order->order_type_badge }}">{{ $order->order_type_string }}</span>
+                                                class="badge  badge-sm badge-outline badge-success text-white {{ $order->order_type_badge }}">{{ $order->order_type_string }}</span>
                                         </td>
                                         <td><span
-                                                class="badge {{ $order->OrderStatusBadge('bg', $order->status) }}">{{ $order->OrderStatusString($order->status) }}</span>
+                                                class=" badge  badge-sm badge-outline badge-success text-white {{ $order->OrderStatusBadge('bg', $order->status) }}">{{ $order->OrderStatusString($order->status) }}</span>
                                         </td>
                                     </tr>
                                     @endforeach
