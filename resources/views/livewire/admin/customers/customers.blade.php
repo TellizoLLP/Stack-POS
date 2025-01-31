@@ -157,7 +157,7 @@
                     </div>
                     <div class="flex justify-end gap-4 px-5">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['close'] ?? 'Close' }}</button>
+                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
 
                         <button class="justify-center btn btn-primary" wire:click="create">
                             {{ $lang->data['save'] ?? 'Save' }}
@@ -236,7 +236,7 @@
                     </div>
                     <div class="flex justify-end gap-4 px-5">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['close'] ?? 'Close' }}</button>
+                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
 
                         <button class="justify-center btn btn-primary" wire:click="update">
                             {{ $lang->data['save'] ?? 'Save' }}
