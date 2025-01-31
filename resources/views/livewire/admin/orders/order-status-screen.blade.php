@@ -25,7 +25,7 @@
             <div class="">
                 <div class="row mt-2 flex gap-3 justify-between">
                     <div class="flex-1">
-                        <div class="card">
+                        <div class="">
                             <div class="card-header pb-0">
                                 <h5 class="card-title text-pending text-center w-full">{{ $lang->data['pending'] ?? 'Pending' }}</h5>
                             </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div class="card">
+                        <div class="">
                             <div class="card-header pb-0">
                                 <h5 class="card-title text-cooking text-center w-full">{{ $lang->data['cooking'] ?? 'Cooking' }}</h5>
                             </div>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div class="card">
+                        <div class="">
                             <div class="card-header pb-0">
                                 <h5 class="card-title text-ready text-center w-full">{{ $lang->data['ready'] ?? 'Ready' }}</h5>
                             </div>
