@@ -77,18 +77,19 @@ class Order extends Model
         return '?';
     }
 
-    public function getOrderTypeBadgeAttribute()
+    public function OrderTypeBadge($start, $order_type)
     {
-        switch($this->order_type){
-            case 1: 
-                return 'bg-success';
+        switch ($order_type) {
+            case 1:
+                return $start.'-success';  // badge-success
             case 2:
-                return 'bg-danger';
+                return $start.'-danger';   // badge-danger
             case 3:
-                return 'bg-secondary';
+                return $start.'-secondary';// badge-secondary
         }
-        return '?';
+        return $start.'-unknown'; // Default for any other order_type
     }
+    
 
     public function OrderStatusString($status)
     {

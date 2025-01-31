@@ -8,8 +8,14 @@
                         <div class="col-md-8 p-0">
                             <div class="card mb-0 rounded-0 shadow-none">
                                 <div class="card-header border-b-1">
+
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-1">
+                                            <a type="button" class="btn btn-success "
+                                               href="{{ route('admin.dashboard') }}"
+                                                > {{ $lang->data['back'] ?? 'Back' }}</a>
+                                        </div>
+                                        <div class="col-md-7">
                                             <input type="text" class="form-control" placeholder="{{$lang->data['search_product'] ?? 'Search Product'}}"
                                                 wire:model="search">
                                         </div>
@@ -17,36 +23,37 @@
                                             <select class="form-select" wire:model="selected_category">
                                                 <option value="all">{{$lang->data['all_category']??'All Category'}}</option>
                                                 @foreach ($categories as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="card-scrollbar card-scroll-y">
                                         <div class="row">
                                             @foreach ($products as $item)
-                                                <div class="col-lg-2 col-6"
-                                                    wire:click='selectProduct({{ $item }})'>
-                                                    <div class="card item-card shadow">
-                                                        <div class="card-body p-0">
-                                                            <img src="{{ $item->photo() }}" class="img-fluid"
-                                                                alt="">
-                                                            <div class="info">
-                                                                <h5 class="name">{{ $item->name }}</h5>
-                                                                <h6 class="mb-0 price"><img
-                                                                        class="@if ($item->is_veg != 1) nonveg @endif"
-                                                                        src="{{ asset('assets/img/icons/veg.png') }}"
-                                                                        alt="">{{ getCurrency() }}{{ $item->price }}
-                                                                </h6>
-                                                            </div>
+                                            <div class="col-lg-2 col-6"
+                                                wire:click='selectProduct({{ $item }})'>
+                                                <div class="card item-card shadow">
+                                                    <div class="card-body p-0">
+                                                        <img src="{{ $item->photo() }}" class="img-fluid"
+                                                            alt="">
+                                                        <div class="info">
+                                                            <h5 class="name">{{ $item->name }}</h5>
+                                                            <h6 class="mb-0 price"><img
+                                                                    class="@if ($item->is_veg != 1) nonveg @endif"
+                                                                    src="{{ asset('assets/img/icons/veg.png') }}"
+                                                                    alt="">{{ getCurrency() }}{{ $item->price }}
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                             @endforeach
                                             @if (count($products) == 0)
-                                                <x-no-data-component message="{{$lang->data['no_items_found']??'No Items Were Found'}}" />
+                                            <x-no-data-component message="{{$lang->data['no_items_found']??'No Items Were Found'}}" />
                                             @endif
                                         </div>
                                     </div>
@@ -62,15 +69,15 @@
                                                 placeholder="@if ($selected_customer) {{ $selected_customer->name }} @else {{$lang->data['walk_in_customer'] ?? 'Walk-In Customer'}} @endif"
                                                 wire:model="customer_search">
                                             @if ($customers && count($customers) > 0)
-                                                <div class="dropdown show">
-                                                    <ul class="dropdown-menu show searchdropdown-custom">
-                                                        @foreach ($customers as $item)
-                                                            <li><a class="dropdown-item" href="#"
-                                                                    wire:click="selectCustomer({{ $item }})">{{ $item->name }}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
+                                            <div class="dropdown show">
+                                                <ul class="dropdown-menu show searchdropdown-custom">
+                                                    @foreach ($customers as $item)
+                                                    <li><a class="dropdown-item" href="#"
+                                                            wire:click="selectCustomer({{ $item }})">{{ $item->name }}</a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
                                             @endif
                                         </div>
                                         @if(Auth::user()->can('add_customer'))
@@ -98,21 +105,22 @@
                                             </div>
                                         </div>
                                         @if ($order_type == \App\Models\Order::DINING)
-                                            <div class="col-4">
-                                                <div class="row">
-                                                    <label class="col text-sm-start">{{$lang->data['select_table']??'Select Table'}}:</label>
-                                                    <div class="col-auto">
-                                                        <select class="form-select form-select-sm"
-                                                            wire:model="selected_table">
-                                                            <option value="">{{$lang->data['choose_table']??'Choose Table'}}</option>
-                                                            @foreach ($tables as $item)
-                                                                <option value="{{ $item->id }}">
-                                                                    {{ $item->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <label class="col text-sm-start">{{$lang->data['select_table']??'Select Table'}}:</label>
+                                                <div class="col-auto">
+                                                    <select class="form-select form-select-sm"
+                                                        wire:model="selected_table">
+                                                        <option value="">{{$lang->data['choose_table']??'Choose Table'}}</option>
+                                                        @foreach ($tables as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
+                                        </div>
                                         @endif
                                     </div>
                                     <div class="col-12 mt-2">
@@ -130,57 +138,59 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($cart as $key => $item)
-                                                        @php
-                                                            $inlineprice = $item['product']['price'];
-                                                            if ($item['variant'] != null) {
-                                                                $inlineprice = $item['variant']['price'];
-                                                            }
-                                                            $extraprice = 0;
-                                                            if ($item['extras'] != null) {
-                                                                foreach ($item['extras'] as $extra) {
-                                                                    $extraprice += $extra['price'];
-                                                                }
-                                                            }
-                                                            $inlinetotal = $inlineprice * $item['quantity'] + $extraprice;
-                                                            $inlineprice += $extraprice;
-                                                        @endphp
-                                                        <tr class="text-sm">
-                                                            <td>{{ $loop->index + 1 }}</td>
-                                                            <td>
-                                                                <b> {{ $item['product']['name'] }}</b>
-                                                                @if ($item['variant'] != null)
-                                                                    - [{{ $item['variant']['name'] }}]
-                                                                @endif
-                                                                @if ($item['extras'] != null)
-                                                                    <br>
-                                                                    extra:
-                                                                    @foreach ($item['extras'] as $extra)
-                                                                        {{ $extra['name'] }}:
-                                                                        {{ getCurrency() }}{{ $extra['price'] }}
-                                                                        @if (!$loop->last)
-                                                                            ,
-                                                                        @endif
-                                                                    @endforeach
-                                                                @endif
-                                                            </td>
-                                                            <td class="text-end">
-                                                                {{ getCurrency() }}{{ $inlineprice }}</td>
-                                                            <td class="text-center">
-                                                                <span class="px-1">{{ $item['quantity'] }}</span>
-                                                            </td>
-                                                            <td class="text-end">
-                                                                {{ getCurrency() }}{{ $inlinetotal }}</td>
-                                                            <td class="text-end"><a class="action-icon"
-                                                                    wire:click="removeFromCart({{ $key }})">
-                                                                    <i
-                                                                        class="fas fa-fw fa-trash-alt text-danger"></i></a>
-                                                            </td>
-                                                        </tr>
+                                                    @php
+                                                    $inlineprice = $item['product']['price'];
+                                                    if ($item['variant'] != null) {
+                                                    $inlineprice = $item['variant']['price'];
+                                                    }
+                                                    $extraprice = 0;
+                                                    if ($item['extras'] != null) {
+                                                    foreach ($item['extras'] as $extra) {
+                                                    $extraprice += $extra['price'];
+                                                    }
+                                                    }
+                                                    $inlinetotal = $inlineprice * $item['quantity'] + $extraprice;
+                                                    $inlineprice += $extraprice;
+                                                    @endphp
+                                                    <tr class="text-sm">
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>
+                                                            <b> {{ $item['product']['name'] }}</b>
+                                                            @if ($item['variant'] != null)
+                                                            - [{{ $item['variant']['name'] }}]
+                                                            @endif
+                                                            @if ($item['extras'] != null)
+                                                            <br>
+                                                            extra:
+                                                            @foreach ($item['extras'] as $extra)
+                                                            {{ $extra['name'] }}:
+                                                            {{ getCurrency() }}{{ $extra['price'] }}
+                                                            @if (!$loop->last)
+                                                            ,
+                                                            @endif
+                                                            @endforeach
+                                                            @endif
+                                                        </td>
+                                                        <td class="text-end">
+                                                            {{ getCurrency() }}{{ $inlineprice }}
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <span class="px-1">{{ $item['quantity'] }}</span>
+                                                        </td>
+                                                        <td class="text-end">
+                                                            {{ getCurrency() }}{{ $inlinetotal }}
+                                                        </td>
+                                                        <td class="text-end"><a class="action-icon"
+                                                                wire:click="removeFromCart({{ $key }})">
+                                                                <i
+                                                                    class="fas fa-fw fa-trash-alt text-danger"></i></a>
+                                                        </td>
+                                                    </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                             @if (count($cart) == 0)
-                                                <x-no-data-component message="{{$lang->data['add_something_to_cart']??'Add something to the cart!'}}" />
+                                            <x-no-data-component message="{{$lang->data['add_something_to_cart']??'Add something to the cart!'}}" />
                                             @endif
                                         </div>
                                     </div>
@@ -195,7 +205,8 @@
                                             <div class="col-md-2">
                                                 <p class="text-sm mb-0"><strong>{{$lang->data['subtotal']??'Sub Total'}}</strong></p>
                                                 <p class="text-sm text-primary fw-bolder mb-0">
-                                                    {{ getCurrency() }}{{ number_format($subtotal, 2) }}</p>
+                                                    {{ getCurrency() }}{{ number_format($subtotal, 2) }}
+                                                </p>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="row">
@@ -220,7 +231,8 @@
                                                 <p class="text-sm mb-0"><strong>{{$lang->data['tax_amount']??'Tax Amount'}}
                                                         ({{ $taxpercentage }}%)</strong></p>
                                                 <p class="text-sm text-dark fw-bolder mb-0">
-                                                    {{ getCurrency() }}{{ number_format($tax_amount, 2) }}</p>
+                                                    {{ getCurrency() }}{{ number_format($tax_amount, 2) }}
+                                                </p>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="row">
@@ -254,7 +266,8 @@
                                             <div class="col">
                                                 <p class="text-sm mb-0"><strong>{{$lang->data['bill_total']??'Bill Total'}}</strong></p>
                                                 <p class="text-sm text-dark fw-bolder mb-0">
-                                                    {{ getCurrency() }}{{ number_format($total, 2) }}</p>
+                                                    {{ getCurrency() }}{{ number_format($total, 2) }}
+                                                </p>
                                             </div>
                                             <div class="col-auto">
                                                 <button type="button" wire:click="$emit('reloadpage')"
@@ -286,7 +299,7 @@
                             <label class="form-label">{{$lang->data['name']??'Name'}} <span class="text-danger"><strong>*</strong></span></label>
                             <input type="text" class="form-control" id="inputEmail4" placeholder="{{$lang->data['name']??'Name'}}" wire:model="name">
                             @error('name')
-                                <span class="text-danger">{{$message}}</span>
+                            <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                         <div class="mb-3 col-md-6">
@@ -294,7 +307,7 @@
                                     class="text-danger"><strong>*</strong></span></label>
                             <input type="text" class="form-control" placeholder="{{$lang->data['phone']??'Phone'}}" wire:model="phone">
                             @error('phone')
-                                <span class="text-danger">{{$message}}</span>
+                            <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
@@ -303,7 +316,7 @@
                         <label class="form-label">{{$lang->data['email']??'Email'}}</label>
                         <input type="text" class="form-control" placeholder="{{$lang->data['email']??'Email'}}" wire:model="email">
                         @error('email')
-                            <span class="text-danger">{{$message}}</span>
+                        <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -322,54 +335,54 @@
     <div class="modal fade" id="ModalProduct" tabindex="-1" role="dialog" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" role="document">
             @if ($product && $addons)
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">
-                            {{ $product->name }}
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        @if ($addons->where('type', 1)->count() > 0)
-                            <div class="mb-2">
-                                <label class="form-label">{{$lang->data['variant']??'Variant'}} <span
-                                        class="text-danger"><strong>*</strong></span></label><br>
-                                <small class="form-text text-muted">{{$lang->data['variant_info']??'If a variant is selected, the variant price is used
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        {{ $product->name }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @if ($addons->where('type', 1)->count() > 0)
+                    <div class="mb-2">
+                        <label class="form-label">{{$lang->data['variant']??'Variant'}} <span
+                                class="text-danger"><strong>*</strong></span></label><br>
+                        <small class="form-text text-muted">{{$lang->data['variant_info']??'If a variant is selected, the variant price is used
                                     instead
                                     of the product price.'}}</small><br>
-                                @foreach ($addons->where('type', 1) as $item)
-                                    <button
-                                        class="btn mb-2 @if ($selected_variant == $item->id) bg-primary text-white @else btn-outline-primary @endif"
-                                        wire:click='selectVariant({{ $item->id }})'>{{ $item->name }} (
-                                        {{ getCurrency() }}{{ $item->price }})</button>
-                                @endforeach
-                            </div>
-                        @endif
-                        @if ($addons->where('type', 2)->count() > 0)
-                            <div class="mb-3">
-                                <label class="form-label">Extra</label><br>
-                                <div>
-                                    @foreach ($addons->where('type', 2) as $item)
-                                        <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox"
-                                                value="{{ $item->id }}" id="check{{ $item->id }}"
-                                                wire:model="selected_extras">
-                                            <span class="form-check-label">
-                                                {{ $item->name }} ( {{ getCurrency() }}{{ $item->price }} )
-                                            </span>
-                                        </label>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endif
+                        @foreach ($addons->where('type', 1) as $item)
+                        <button
+                            class="btn mb-2 @if ($selected_variant == $item->id) bg-primary text-white @else btn-outline-primary @endif"
+                            wire:click='selectVariant({{ $item->id }})'>{{ $item->name }} (
+                            {{ getCurrency() }}{{ $item->price }})</button>
+                        @endforeach
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{$lang->data['close']??'Close'}}</button>
-                        <button type="button" class="btn btn-info"
-                            wire:click="completeAddonSelection()">{{$lang->data['add']??'Add'}}</button>
+                    @endif
+                    @if ($addons->where('type', 2)->count() > 0)
+                    <div class="mb-3">
+                        <label class="form-label">Extra</label><br>
+                        <div>
+                            @foreach ($addons->where('type', 2) as $item)
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox"
+                                    value="{{ $item->id }}" id="check{{ $item->id }}"
+                                    wire:model="selected_extras">
+                                <span class="form-check-label">
+                                    {{ $item->name }} ( {{ getCurrency() }}{{ $item->price }} )
+                                </span>
+                            </label>
+                            @endforeach
+                        </div>
                     </div>
+                    @endif
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{$lang->data['close']??'Close'}}</button>
+                    <button type="button" class="btn btn-info"
+                        wire:click="completeAddonSelection()">{{$lang->data['add']??'Add'}}</button>
+                </div>
+            </div>
             @endif
         </div>
     </div>
@@ -403,7 +416,7 @@
                                             </div>
                                             @else
                                             <div class="ms-2 mb-0 mt-2">
-                                               -
+                                                -
                                             </div>
                                             @endif
                                         </div>
@@ -422,7 +435,7 @@
                         </div>
                         @endforeach
                         @if (count($todaycooking) == 0)
-                            <x-no-data-component message="{{$lang->data['no_cooking_items']??'No cooking items..'}}" />
+                        <x-no-data-component message="{{$lang->data['no_cooking_items']??'No cooking items..'}}" />
                         @endif
                     </div>
                 </div>

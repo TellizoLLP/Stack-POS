@@ -11,11 +11,11 @@
                         </h1>
                     </div>
                     @if (Auth::user()->can('add_order'))
-                        <div class="flex items-center gap-1">
-                            <a class="btn btn-light btn-sm" href="{{ route('admin.pos') }}">
-                                {{ $lang->data['new_order'] ?? 'New Order' }}
-                            </a>
-                        </div>
+                    <div class="flex items-center gap-1">
+                        <a class="btn btn-light btn-sm" href="{{ route('admin.pos') }}">
+                            {{ $lang->data['new_order'] ?? 'New Order' }}
+                        </a>
+                    </div>
                     @endif
                 </div>
             </div>
@@ -47,59 +47,59 @@
                                         <span class="sort">
                                             <span class="sort-label">
                                                 {{ $lang->data['sl'] ?? 'Sl' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['order_details'] ?? 'Order Details' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['customer'] ?? 'Customer' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['order_type'] ?? 'Order Type' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['order_status'] ?? 'Order Status' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['payment_details'] ?? 'Payment Details' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['more'] ?? 'More' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                    <th class="">
-                                        <span class="sort">
-                                            <span class="sort-label">
-                                                {{ $lang->data['actions'] ?? 'Actions' }}
-                                            </span>
-                                        </span>
-                                    </th>
-                                </tr>
+                            </span>
+                            </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['order_details'] ?? 'Order Details' }}
+                                    </span>
+                                </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['customer'] ?? 'Customer' }}
+                                    </span>
+                                </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['order_type'] ?? 'Order Type' }}
+                                    </span>
+                                </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['order_status'] ?? 'Order Status' }}
+                                    </span>
+                                </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['payment_details'] ?? 'Payment Details' }}
+                                    </span>
+                                </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['more'] ?? 'More' }}
+                                    </span>
+                                </span>
+                            </th>
+                            <th class="">
+                                <span class="sort">
+                                    <span class="sort-label">
+                                        {{ $lang->data['actions'] ?? 'Actions' }}
+                                    </span>
+                                </span>
+                            </th>
+                            </tr>
                             </thead> --}}
                             <div class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 data-datatable-spinner="true" style="display: none;">
@@ -118,71 +118,74 @@
                             </div>
                             <tbody>
                                 @foreach ($orders as $item)
-                                    <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
-                                        <td class="d-none d-xl-table-cell">
-                                            <strong>{{ $lang->data['order_id'] ?? 'Order ID' }}:
-                                                {{ $item->order_number }}</strong>
-                                            <div class="text-muted">
-                                                {{ $lang->data['order_date'] ?? 'Order Date' }}:
-                                                {{ \Carbon\Carbon::parse($item->date)->format('d/m/Y') }}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            @if ($item->customer_name)
-                                                {{ $item->customer_name }}
-                                            @else
-                                                {{ $lang->data['walk_in_customer'] ?? 'Walk-In Customer' }}
+                                <tr>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td class="d-none d-xl-table-cell">
+                                        <strong>{{ $lang->data['order_id'] ?? 'Order ID' }}:
+                                            {{ $item->order_number }}</strong>
+                                        <div class="text-muted">
+                                            {{ $lang->data['order_date'] ?? 'Order Date' }}:
+                                            {{ \Carbon\Carbon::parse($item->date)->format('d/m/Y') }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if ($item->customer_name)
+                                        {{ $item->customer_name }}
+                                        @else
+                                        {{ $lang->data['walk_in_customer'] ?? 'Walk-In Customer' }}
+                                        @endif
+                                    </td>
+                                    <td class="d-none d-xl-table-cell">
+                                        <span class="badge badge-sm badge-outline {{ $item->OrderTypeBadge('badge', $item->order_type) }}">
+                                            {{ $item->order_type_string }}
+                                        </span>
+
+                                        @if ($item->order_type == \App\Models\Order::DINING)
+                                        <div class="text-muted mt-0.5">
+                                            {{ $lang->data['table_no'] ?? 'Table No' }}: {{ $item->table_no }}
+                                        </div>
+                                        @endif
+
+                                    </td>
+                                    <td><span
+                                            class="badge badge-sm badge-outline {{ $item->OrderStatusBadge('badge', $item->status) }}">{{ $item->OrderStatusString($item->status) }}</span>
+                                    </td>
+                                    <td class="d-none d-xl-table-cell">
+                                        <div class="text-muted">
+                                            {{ $lang->data['total'] ?? 'Total' }}:
+                                            {{ getCurrency() }}{{ number_format($item->total, 2) }}
+                                        </div>
+                                        <div class="text-muted">
+                                            {{ $lang->data['paid'] ?? 'Paid' }}:
+                                            {{ getCurrency() }}{{ number_format($item->payments->sum('amount'), 2) }}
+                                        </div>
+                                        <strong>{{ $lang->data['balance'] ?? 'Balance' }}:
+                                            {{ getCurrency() }}{{ number_format($item->total - $item->payments->sum('amount'), 2) }}</strong>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.view_order', $item->id) }}"
+                                            class="btn btn-sm w-100 btn-gray">{{ $lang->data['view'] ?? 'View' }}</a>
+                                        @if ($item->total - $item->payments->sum('amount') > 0)
+                                        <a href="#" class="btn btn-sm btn-gray mt-2"
+                                            data-bs-target="#ModalPayment" data-bs-toggle="modal"
+                                            wire:click="viewPayment({{ $item->id }})">{{ $lang->data['add_payment'] ?? 'Add Payment' }}</a>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if ($item->status < 3 && Auth::user()->can('change_status'))
+                                            <a href="#"
+                                                class="btn btn-sm {{ $item->OrderStatusBadge('btn', $item->status + 1) }}"
+                                                wire:click="changeStatus({{ $item }})">{{ $lang->data['mark_as'] ?? 'Mark As' }}
+                                                {{ $item->OrderStatusString($item->status + 1) }}</a>
                                             @endif
-                                        </td>
-                                        <td class="d-none d-xl-table-cell">
-                                            <span
-                                                class="badge {{ $item->order_type_badge }}">{{ $item->order_type_string }}</span>
-                                            @if ($item->order_type == \App\Models\Order::DINING)
-                                                <div class="text-muted">
-                                                    {{ $lang->data['table_no'] ?? 'Table No' }}: {{ $item->table_no }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td><span
-                                                class="badge {{ $item->OrderStatusBadge('bg', $item->status) }}">{{ $item->OrderStatusString($item->status) }}</span>
-                                        </td>
-                                        <td class="d-none d-xl-table-cell">
-                                            <div class="text-muted">
-                                                {{ $lang->data['total'] ?? 'Total' }}:
-                                                {{ getCurrency() }}{{ number_format($item->total, 2) }}
-                                            </div>
-                                            <div class="text-muted">
-                                                {{ $lang->data['paid'] ?? 'Paid' }}:
-                                                {{ getCurrency() }}{{ number_format($item->payments->sum('amount'), 2) }}
-                                            </div>
-                                            <strong>{{ $lang->data['balance'] ?? 'Balance' }}:
-                                                {{ getCurrency() }}{{ number_format($item->total - $item->payments->sum('amount'), 2) }}</strong>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('admin.view_order', $item->id) }}"
-                                                class="btn btn-sm w-100 btn-gray">{{ $lang->data['view'] ?? 'View' }}</a>
-                                            @if ($item->total - $item->payments->sum('amount') > 0)
-                                                <a href="#" class="btn btn-sm btn-gray mt-2"
-                                                    data-bs-target="#ModalPayment" data-bs-toggle="modal"
-                                                    wire:click="viewPayment({{ $item->id }})">{{ $lang->data['add_payment'] ?? 'Add Payment' }}</a>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">
-                                            @if ($item->status < 3 && Auth::user()->can('change_status'))
-                                                <a href="#"
-                                                    class="btn btn-sm {{ $item->OrderStatusBadge('btn', $item->status + 1) }}"
-                                                    wire:click="changeStatus({{ $item }})">{{ $lang->data['mark_as'] ?? 'Mark As' }}
-                                                    {{ $item->OrderStatusString($item->status + 1) }}</a>
-                                            @endif
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         @if (count($orders) == 0)
-                            <x-no-data-component
-                                message="{{ $lang->data['no_orders_found'] ?? 'No orders were found..' }}" />
+                        <x-no-data-component
+                            message="{{ $lang->data['no_orders_found'] ?? 'No orders were found..' }}" />
                         @endif
                     </div>
                 </div>
