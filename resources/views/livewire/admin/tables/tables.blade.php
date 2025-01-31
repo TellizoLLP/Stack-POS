@@ -21,7 +21,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <main class="w-full grow">
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">
@@ -70,22 +69,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    {{-- <td>
-                                            @if (Auth::user()->can('edit_table'))
-                                                <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#EditModalCategory"
-                                                    wire:click='edit({{ $item }})'>{{ $lang->data['edit'] ?? 'Edit' }}</a>
-                                    @endif
-                                    @if (Auth::user()->can('delete_table'))
-                                    <a href="#" class="btn btn-sm btn-danger"
-                                        wire:click="delete({{ $item }})">{{ $lang->data['delete'] ?? 'Delete' }}</a>
-                                    @endif
-
-                                    </td> --}}
                                 </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                         @if (count($tables) == 0)
@@ -96,7 +81,6 @@
                 </div>
             </div>
         </div>
-
         <div class="modal" data-modal="true" data-modal-disable-scroll="false" id="ModalCategory" wire:ignore.self>
             <div class="modal-content max-w-[600px] top-5 lg:top-[15%]">
                 <div class="modal-header pr-2.5">
@@ -125,12 +109,6 @@
                             @enderror
                         </div>
                     </div>
-                    {{-- <div class="flex flex-col gap-2.5 px-4">
-                        <div class="form-check form-switch">
-                        <input class="checkbox checkbox-sm" type="checkbox" id="isActive" wire:model="is_active">
-                        <label for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-                        </div>
-                    </div> --}}
                     <div class="flex flex-col  gap-2.5 px-4">
                         <div class="flex items-center  gap-2">
                             <div class="switch switch-sm">
@@ -142,11 +120,9 @@
                             </label>
                         </div>
                     </div>
-
                     <div class="flex justify-end gap-4 px-5">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['close'] ?? 'Close' }}</button>
-
+                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
                         <button class="justify-center btn btn-primary" wire:click="create">
                             {{ $lang->data['save'] ?? 'Save' }}
                         </button>
@@ -197,7 +173,7 @@
 
                     <div class="flex justify-end gap-4 px-5">
                         <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">{{ $lang->data['close'] ?? 'Close' }}</button>
+                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
 
                         <button class="justify-center btn btn-primary" wire:click="update">
                             {{ $lang->data['save'] ?? 'Save' }}
