@@ -19,9 +19,9 @@
             </div>
         </div>
     </div>
-    <div class="flex gap-3">
-        <div class="w-1/2">
-            <div class="card mt-4">
+    <div class="flex">
+        <div class="w-1/2 mx-3">
+            <div class="card mt-3">
                 <div class="card-header border-b-1">
                     <div class="flex justify-between items-center">
                         <div class="hidden sm:block">
@@ -74,8 +74,8 @@
             </div>
         </div>
     
-        <div class="w-1/2">
-            <div class="card mt-4">
+        <div class="w-1/2 mx-3">
+            <div class="card mt-3">
                 <div class="card-header border-b-1">
                     <div class="flex justify-between items-center">
                         <div class="hidden sm:block">
