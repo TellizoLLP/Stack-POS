@@ -19,454 +19,132 @@
             </div>
         </div>
     </div>
-    {{-- <div class="card">
+    <div class="card-body ">
+        <form x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
+            x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false">
 
-        <div class="card-body grid gap-5 col-md-12">
-            <form x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
-                x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false">
-
-                <div class="flex flex-col flex-wrap lg:flex-nowrap gap-2.5">
-                    <label class="form-label">
-                        {{ $lang->data['product_code'] ?? 'Product Code' }} <span
-        class="text-danger"><strong>*</strong></span>
-    </label>
-    <div class="grow">
-        <input class="input" type="text"
-            placeholder="{{ $lang->data['product_code'] ?? 'Product Code' }}" wire:model="code" />
-        @error('code')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-</div>
-<div class="flex flex-col flex-wrap lg:flex-nowrap gap-2.5 mt-2">
-    <label class="form-label">
-        {{ $lang->data['product_name'] ?? 'Product Name ' }} <span
-            class="text-danger"><strong>*</strong></span>
-    </label>
-    <div class="grow">
-        <input class="input" type="text"
-            placeholder="{{ $lang->data['product_name'] ?? 'Product Name' }}" wire:model="name" />
-        @error('name')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-</div>
-<div class="flex flex-col  flex-wrap lg:flex-nowrap gap-2.5 mt-2">
-    <label class="form-label ">
-        {{ $lang->data['category'] ?? 'Category ' }} <span class="text-danger"><strong>*</strong></span>
-    </label>
-    <div class="grow">
-        <select class="select" wire:model="category">
-            <option selected value="">
-                {{ $lang->data['choose'] ?? 'Choose...' }}
-            </option>
-            @foreach ($categories as $item)
-            <option value="{{ $item->id }}">{{ $item->name }}</option>
-            @endforeach
-        </select>
-    </div>
-</div>
-<div class="flex flex-col  flex-wrap lg:flex-nowrap gap-2.5 mt-2">
-    <label class="form-label ">
-        {{ $lang->data['image'] ?? 'Image' }}
-    </label>
-    <div class="grow">
-        <div class="grow">
-            <input class="input pt-2" type="file" wire:model="image" />
-            @error('file')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
-</div>
-<div class="flex flex-col  flex-wrap lg:flex-nowrap gap-2.5 mt-2">
-    <label class="form-label ">
-        {{ $lang->data['price'] ?? 'Price' }}
-    </label>
-    <div class="grow">
-        <div class="grow">
-            <input class="input" type="number" wire:model="price" />
-            @error('price')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
-</div>
-<div class="flex flex-col  flex-wrap lg:flex-nowrap gap-2.5 mt-2">
-    <label class="form-label ">
-        {{ $lang->data['description'] ?? 'Description' }}
-    </label>
-    <div class="grow">
-        <div class="grow">
-            <textarea class="input resize-none" rows="4" wire:model="description"></textarea>
-            @error('description')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
-</div>
-<div class="flex flex-col  flex-wrap lg:flex-nowrap gap-2.5 mt-2">
-    <label class="form-label ">
-        {{ $lang->data['description'] ?? 'Description' }}
-    </label>
-    <div class="grow">
-        <div class="grow">
-            <textarea class="input resize-none" rows="4" wire:model="description"></textarea>
-            @error('description')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
-</div>
-<div class="mb-5">
-    <div class="form-check form-switch">
-    <input class="checkbox checkbox-sm " type="checkbox" id="isVeg" wire:model="is_veg">
-    <label for="isVeg">{{ $lang->data['is_veg'] ?? 'isVeg' }}</label>
-</div>
-
-
-</div>
-<div class="mb-3">
-    <div class="form-check form-switch">
-    <input class="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" type="checkbox" id="isActive" wire:model="is_active">
-<label for="isActive" class="ml-2 text-sm text-gray-700">{{ $lang->data['is_active'] ?? 'isActive' }}</label>   </div>
-</div>
-<div class="flex justify-end gap-4 px-5">
-    <button class="justify-center btn btn-primary" :disabled="isUploading == true"
-        wire:click.prevent="create">
-        {{ $lang->data['submit'] ?? 'Submit' }}
-    </button>
-</div>
-
-</form>
-</div>
-</div> --}}
-{{-- <div class="col-md-12"> --}}
-
-<div class="card-body">
-    <form x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
-        x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false">
-
-        <div class="grid gap-5 px-0 py-5 ">
-            <div class="grid grid-cols-2 gap-5 px-4">
-                <div class="flex flex-col gap-2">
-                    <label class="form-label">
-                        {{ $lang->data['product_code'] ?? 'Product Code' }} <span
-                            class="text-danger"><strong>*</strong></span>
-                    </label>
-                    <div class="grow">
-                        <input class="input" type="text"
-                            placeholder="{{ $lang->data['product_code'] ?? 'Product Code' }}" wire:model="code" />
-                        @error('code')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label class="form-label">
-                        {{ $lang->data['product_name'] ?? 'Product Name ' }} <span
-                            class="text-danger"><strong>*</strong></span>
-                    </label>
-                    <div class="grow">
-                        <input class="input" type="text"
-                            placeholder="{{ $lang->data['product_name'] ?? 'Product Name' }}" wire:model="name" />
-                        @error('name')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label class="form-label ">
-                        {{ $lang->data['category'] ?? 'Category ' }} <span
-                            class="text-danger"><strong>*</strong></span>
-                    </label>
-                    <div class="grow">
-                        <select class="select" wire:model="category">
-                            <option selected value="">
-                                {{ $lang->data['choose'] ?? 'Choose...' }}
-                            </option>
-                            @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label class="form-label ">
-                        {{ $lang->data['image'] ?? 'Image' }}
-                    </label>
-                    <div class="grow">
-                        <div class="grow">
-                            <input class="input pt-2" type="file" wire:model="image" />
-                            @error('file')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label class="form-label ">
-                        {{ $lang->data['price'] ?? 'Price' }}
-                    </label>
-                    <div class="grow">
-                        <div class="grow">
-                            <input class="input" type="number" wire:model="price" />
-                            @error('price')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label class="form-label ">
-                        {{ $lang->data['description'] ?? 'Description' }}
-                    </label>
-                    <div class="grow">
-                        <div class="grow">
-                            <textarea class="input resize-none" rows="4" wire:model="description"></textarea>
-                            @error('description')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="isVeg" wire:model="is_veg">
-                        <label class="form-check-label"
-                            for="isVeg">{{ $lang->data['is_veg'] ?? 'isVeg' }}</label>
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="isActive" wire:model="is_active">
-                        <label class="form-check-label"
-                            for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-                    </div>
-                </div>
-
-                {{-- <div class="mb-3">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="isVeg" wire:model="is_veg">
-                                    <label class="form-check-label"
-                                        for="isVeg">{{ $lang->data['is_veg'] ?? 'isVeg' }}</label>
-            </div>
-        </div>
-        <div class="mb-3">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="isActive"
-                    wire:model="is_active">
-                <label class="form-check-label"
-                    for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-            </div>
-        </div> --}}
-        <div class="flex justify-end float-end gap-4 px-5">
-            <button class="justify-center btn btn-primary" :disabled="isUploading == true"
-                wire:click.prevent="create">
-                {{ $lang->data['submit'] ?? 'Submit' }}
-            </button>
-        </div>
-
-    </form>
-</div>
-
-{{-- <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <form>
-                    <div class="grid gap-5 px-0 py-5 ">
-                        <div class="grid grid-cols-2 gap-5 px-4">
-                            <div class="flex flex-col gap-2.5">
-                                <label class="font-semibold text-gray-900 text-2sm">
-                                    {{ $lang->data['staff_name'] ?? 'Staff Name' }} <span class="text-red-500">*</span>
-</label>
-<input type="text" class="input" placeholder="{{ $lang->data['enter_staff_name'] ?? 'Enter Staff Name' }}" wire:model="name" />
-@error('name') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-</div>
-
-<div class="flex flex-col gap-2.5">
-    <label class="font-semibold text-gray-900 text-2sm">
-        {{ $lang->data['contact_number'] ?? 'Contact Number' }} <span class="text-red-500">*</span>
-    </label>
-    <input type="number" class="input" placeholder="{{ $lang->data['enter_contact_number'] ?? 'Enter Contact Number' }}" wire:model="phone" />
-    @error('phone') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-</div>
-
-<div class="flex flex-col gap-2.5">
-    <label class="font-semibold text-gray-900 text-2sm">
-        {{ $lang->data['email'] ?? 'Email' }}
-    </label>
-    <input type="text" class="input" placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}" wire:model="email" />
-    @error('email') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-</div>
-
-<div class="flex flex-col gap-2.5">
-    <label class="font-semibold text-gray-900 text-2sm">
-        {{ $lang->data['password'] ?? 'Password' }}
-    </label>
-    <input type="text" class="input" placeholder="{{ $lang->data['enter_password'] ?? 'Enter Password' }}" wire:model="password" />
-    @error('password') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
-</div>
-
-<div class="flex flex-col gap-2.5 col-span-2">
-    <label class="font-semibold text-gray-900 text-2sm">
-        {{ $lang->data['address'] ?? 'Address' }}
-    </label>
-    <textarea placeholder="{{ $lang->data['address'] ?? 'Address' }}" wire:model="address" class="p-3 resize-none input min-h-20"></textarea>
-</div>
-
-<div class="flex flex-col gap-2.5 col-span-2">
-    <label class="font-semibold text-gray-900 text-2sm">
-        {{ $lang->data['permissions'] ?? 'Permissions' }}
-    </label>
-    <div class="row px-2">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th class="tw-20">{{ $lang->data['menu_title'] ?? 'Menu Title' }}</th>
-                    <th class="tw-80">{{ $lang->data['actions'] ?? 'Actions' }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php
-                $permission_individual = App\Models\Permission::latest()->get();
-                $permission_group = App\Models\Permission::groupBy('list','category')->select('list','category', DB::raw('count(*) as total'))->orderBy('list')->get();
-                @endphp
-                @foreach ($permission_group as $permission)
-                <tr>
-                    <td>{{$permission->category}}</td>
-                    <td>
-                        @foreach ($permission_individual as $row)
-                        @if ($permission->list == $row->list)
-                        <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="{{ $row->id }}" wire:model="selected_permissions.{{ $row->id }}">
-                            <span class="form-check-label">
-                                {{$row->name }}
-                            </span>
+            <div class="grid gap-5 px-0 py-2 ">
+                <div class="grid grid-cols-6 gap-5 px-4">
+                    <div class="flex flex-col col-span-3 gap-2">
+                        <label class="form-label">
+                            {{ $lang->data['product_code'] ?? 'Product Code' }} <span
+                                class="text-danger"><strong>*</strong></span>
                         </label>
-                        @endif
-                        @endforeach
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
-</div>
-<button type="submit" class="btn btn-primary" wire:click.prevent="save">
-    {{ $lang->data['save'] ?? 'Save' }}
-</button>
-</form>
-</div>
-</div>
-</div> --}}
+                        <div class="grow">
+                            <input class="input" type="text"
+                                placeholder="{{ $lang->data['product_code'] ?? 'Product Code' }}" wire:model="code" />
+                            @error('code')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="flex flex-col col-span-3 gap-2">
+                        <label class="form-label ">
+                            {{ $lang->data['image'] ?? 'Image' }}
+                        </label>
+                        <div class="grow">
+                            <div class="grow">
+                                <input class="input p-2.5" type="file" wire:model="image" />
+                                @error('file')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="flex flex-col col-span-2 gap-2">
+                        <label class="form-label ">
+                            {{ $lang->data['category'] ?? 'Category ' }} <span
+                                class="text-danger"><strong>*</strong></span>
+                        </label>
+                        <div class="grow">
+                            <select class="select" wire:model="category">
+                                <option selected value="">
+                                    {{ $lang->data['choose'] ?? 'Choose...' }}
+                                </option>
+                                @foreach ($categories as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex flex-col col-span-2 gap-2">
+                        <label class="form-label">
+                            {{ $lang->data['product_name'] ?? 'Product Name ' }} <span
+                                class="text-danger"><strong>*</strong></span>
+                        </label>
+                        <div class="grow">
+                            <input class="input" type="text"
+                                placeholder="{{ $lang->data['product_name'] ?? 'Product Name' }}" wire:model="name" />
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
 
-{{-- <main class="w-full grow">
-        <div class="min-w-full card card-grid rounded-none border-none shadow-none">
-            <div class="card-body">
-                <div>
+                    <div class="flex flex-col col-span-2 gap-2">
+                        <label class="form-label ">
+                            {{ $lang->data['price'] ?? 'Price' }} <span class="text-danger"><strong>*</strong></span>
+                        </label>
+                        <div class="grow">
+                            <div class="grow">
+                                <input class="input" type="number"
+                                    placeholder="{{ $lang->data['price'] ?? ' Price' }}" wire:model="price" />
+                                @error('price')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col col-span-6 gap-2">
+                        <label class="form-label ">
+                            {{ $lang->data['description'] ?? 'Description' }}
+                        </label>
+                        <div class="grow">
+                            <div class="grow">
+                                <textarea class="input resize-none min-h-16 p-2" rows="4"
+                                    placeholder="{{ $lang->data['description'] ?? '  Description ' }}" wire:model="description"></textarea>
+                                @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex flex-col  gap-2.5">
+                            <div class="flex items-center  gap-2">
+                                <div class="switch switch-sm">
+                                    <input name="param" type="checkbox" id="isVeg" wire:model="is_veg"
+                                        checked="">
+                                </div>
+                                <label class="form-label ">
+                                    {{ $lang->data['is_veg'] ?? 'Is Veg?' }}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex flex-col  gap-2.5">
+                            <div class="flex items-center  gap-2">
+                                <div class="switch switch-sm">
+                                    <input name="param" type="checkbox" id="isActive"
+                                        wire:model="is_active"checked="">
+                                </div>
+                                <label class="form-label ">
+                                    {{ $lang->data['is_active'] ?? 'Is Active?' }}
+                                </label>
+                            </div>
+                        </div>
 
-                    <div class="col-md-12">
-                        <div class="card">
+                    </div>
 
-                            <div class="card-body">
-                                <form x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
-                                    x-on:livewire-upload-finish="isUploading = false"
-                                    x-on:livewire-upload-error="isUploading = false">
-                                    <div class="row">
-                                        <div class="mb-3 col-md-2">
-                                            <label class="form-label"
-                                                for="inputEmail4">{{ $lang->data['product_code'] ?? 'Product Code' }}
-<span class="text-danger"><strong>*</strong></span></label>
-<input type="email" class="form-control"
-    placeholder="{{ $lang->data['product_code'] ?? 'Product Code' }}"
-    wire:model="code">
-@error('code')
-<span class="text-danger">{{ $message }}</span>
-@enderror
-</div>
-<div class="mb-3 col-md-10">
-    <label
-        class="form-label">{{ $lang->data['product_name'] ?? 'Product Name ' }}<span
-            class="text-danger"><strong>*</strong></span></label>
-    <input type="text" class="form-control"
-        placeholder="{{ $lang->data['product_name'] ?? 'Product Name' }}"
-        wire:model="name">
-    @error('name')
-    <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
-</div>
-<div class="row">
-    <div class="mb-3 col-md-4">
-        <label class="form-label">{{ $lang->data['category'] ?? 'Category ' }}<span
-                class="text-danger"><strong>*</strong></span></label>
-        <select class="form-control" wire:model="category">
-            <option selected value="">
-                {{ $lang->data['choose'] ?? 'Choose...' }}
-            </option>
-            @foreach ($categories as $item)
-            <option value="{{ $item->id }}">{{ $item->name }}</option>
-            @endforeach
-        </select>
-        @error('category')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="mb-3 col-md-4">
-        <label class="form-label"
-            for="inputCity">{{ $lang->data['image'] ?? 'Image' }}</label>
-        <input type="file" class="form-control" wire:model="image">
-        @error('file')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
+                </div>
+            </div>
+            <div class="flex justify-end float-end gap-4 px-5">
+                <button class="justify-center btn btn-primary" :disabled="isUploading == true"
+                    wire:click.prevent="create">
+                    {{ $lang->data['submit'] ?? 'Submit' }}
+                </button>
+            </div>
 
-    <div class="mb-3 col-md-4">
-        <label class="form-label"
-            for="inputZip">{{ $lang->data['price'] ?? 'Price' }} <span
-                class="text-danger"><strong>*</strong></span></label>
-        <input type="number" class="form-control" wire:model="price">
-        @error('price')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
+        </form>
     </div>
-</div>
-<div class="mb-3">
-    <label class="form-label"
-        for="inputAddress">{{ $lang->data['description'] ?? 'Description' }}</label>
-    <textarea class="form-control resize-none" rows="4" wire:model="description"></textarea>
-    @error('description')
-    <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
-<div class="mb-3">
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="isVeg"
-            wire:model="is_veg">
-        <label class="form-check-label"
-            for="isVeg">{{ $lang->data['is_veg'] ?? 'isVeg' }}</label>
-    </div>
-</div>
-<div class="mb-3">
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="isActive"
-            wire:model="is_active">
-        <label class="form-check-label"
-            for="isActive">{{ $lang->data['is_active'] ?? 'isActive' }}</label>
-    </div>
-</div>
-
-<button type="button" class="btn btn-primary float-end"
-    :disabled="isUploading == true"
-    wire:click.prevent="create">{{ $lang->data['submit'] ?? 'Submit' }}</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main> --}}
 </div>
