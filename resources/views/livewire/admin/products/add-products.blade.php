@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="card-body ">
+    <div class="card-body p-2">
         <form x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
             x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false">
 
