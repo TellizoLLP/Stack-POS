@@ -23,9 +23,9 @@
     <main class="w-full grow scrollable-y-auto">
         <div class="container-fluid">
             <div class="">
-                <div class="row mt-2 flex gap-3 items-center justify-between">
+                <div class="row mt-2 flex gap-3 justify-between">
                     <div class="flex-1">
-                        <div class="card min-h-[200px]">
+                        <div class="card">
                             <div class="card-header pb-0">
                                 <h5 class="card-title text-pending text-center w-full">{{ $lang->data['pending'] ?? 'Pending' }}</h5>
                             </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div class="card min-h-[200px]">
+                        <div class="card">
                             <div class="card-header pb-0">
                                 <h5 class="card-title text-cooking text-center w-full">{{ $lang->data['cooking'] ?? 'Cooking' }}</h5>
                             </div>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div class="card min-h-[200px] ">
+                        <div class="card">
                             <div class="card-header pb-0">
                                 <h5 class="card-title text-ready text-center w-full">{{ $lang->data['ready'] ?? 'Ready' }}</h5>
                             </div>
