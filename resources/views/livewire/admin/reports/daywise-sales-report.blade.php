@@ -12,12 +12,10 @@
                     </div>
                     <div class="flex items-center gap-1">
                         <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
-                        href="{{ route('admin.report_view') }}">
-                        {{ $lang->data['back'] ?? 'Back' }}
-                    </a>
-                        <a class="btn btn-light btn-sm" wire:click="getData">
-                            {{ $lang->data['search'] ?? 'Search' }}
+                            href="{{ route('admin.report_view') }}">
+                            {{ $lang->data['back'] ?? 'Back' }}
                         </a>
+
                     </div>
                 </div>
             </div>
@@ -35,6 +33,11 @@
                 {{ $lang->data['end_date'] ?? 'End Date' }}
             </label>
             <input type="date" class="text-sm" id="end_date" wire:model="end_date">
+        </div>
+        <div class="flex flex-col p-4">
+            <a class="btn btn-light btn-sm" wire:click="getData">
+                {{ $lang->data['search'] ?? 'Search' }}
+            </a>
         </div>
     </div>
 </div>
@@ -55,18 +58,18 @@
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
-                                <tr>
-                                    <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ Carbon\Carbon::parse($item['date'])->format('d/m/Y') }}</td>
-                                    <td>{{ $item['count'] }}</td>
-                                    <td>{{ getCurrency() }}{{ $item['total'] }}</td>
-                                    <td>{{ getCurrency() }}{{ $item['total_paid'] }}</td>
-                                </tr>
+                            <tr>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td>{{ Carbon\Carbon::parse($item['date'])->format('d/m/Y') }}</td>
+                                <td>{{ $item['count'] }}</td>
+                                <td>{{ getCurrency() }}{{ $item['total'] }}</td>
+                                <td>{{ getCurrency() }}{{ $item['total_paid'] }}</td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
                     @if (count($data) == 0)
-                        <x-no-data-component message="{{ $lang->data['no_data_found'] ?? 'No data found..' }}" />
+                    <x-no-data-component message="{{ $lang->data['no_data_found'] ?? 'No data found..' }}" />
                     @endif
                 </div>
             </div>

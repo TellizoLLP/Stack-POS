@@ -137,7 +137,7 @@ class Order extends Model
             case 0:
                 return $start.'-warning';
             case 1:
-                return $start.'-bv';
+                return $start.'-primary';
             case 2:
                 return $start.'-success';
             case 3:

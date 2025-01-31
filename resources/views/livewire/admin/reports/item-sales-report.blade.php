@@ -16,10 +16,7 @@
                         href="{{ route('admin.report_view') }}">
                         {{ $lang->data['back'] ?? 'Back' }}
                     </a>
-                        <a class="btn btn-light btn-sm"
-                            wire:click='getData'>
-                            {{ $lang->data['search'] ?? 'Search' }}
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -48,6 +45,12 @@
                             <label class="">{{ $lang->data['search_item'] ?? 'Search Item' }}</label>
                             <input type="text" 
                                 placeholder="{{ $lang->data['all_items'] ?? 'All Items' }}" wire:model='search'/>
+                        </div>
+                        <div class="flex flex-col p-4">
+                        <a class="btn btn-light btn-sm"
+                            wire:click='getData'>
+                            {{ $lang->data['search'] ?? 'Search' }}
+                        </a>
                         </div>
                     </div>
                 {{-- </div> --}}

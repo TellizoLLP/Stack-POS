@@ -15,9 +15,7 @@
                             href="{{ route('admin.report_view') }}">
                             {{ $lang->data['back'] ?? 'Back' }}
                         </a>
-                        <a class="btn btn-light btn-sm " wire:click="getData">
-                            {{ $lang->data['search'] ?? 'Search' }}
-                        </a>
+                       
                     </div>
                 </div>
             </div>
@@ -54,6 +52,11 @@
                                 <option class="select-box" value="3">{{ $lang->data['delivery'] ?? 'Delivery' }}
                                 </option>
                             </select>
+                        </div>
+                        <div class="flex flex-col p-4">
+                        <a class="btn btn-light btn-sm " wire:click="getData">
+                            {{ $lang->data['search'] ?? 'Search' }}
+                        </a>
                         </div>
                     </div>
                     <div class="scrollable-x-auto mt-5">
