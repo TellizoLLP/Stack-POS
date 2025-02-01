@@ -29,7 +29,7 @@
                 <input class="input" placeholder="{{ $lang->data['enter_store_name'] ?? 'Enter Store Name' }}"
                     type="text" value="" wire:model='name' />
                 @error('name')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger text-sm">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -39,9 +39,9 @@
             </label>
             <div class="grow">
                 <input class="input pt-3" placeholder="" type="file" wire:model='logo' />
-                @error('logo')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+                {{-- @error('logo')
+                    <span class="text-danger text-sm">{{ $message }}</span>
+                @enderror --}}
             </div>
         </div>
         <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
@@ -50,9 +50,9 @@
             </label>
             <div class="grow">
                 <input class="input pt-3" type="file" class="form-control" wire:model='favicon' />
-                @error('favicon')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+                {{-- @error('favicon')
+                    <span class="text-danger text-sm">{{ $message }}</span>
+                @enderror --}}
             </div>
         </div>
         <div class="flex items-center flex-wrap lg:flex-nowrap gap-2.5">
@@ -64,7 +64,7 @@
                 <input class="input" placeholder="{{ $lang->data['enter_contact_number'] ?? 'Enter Contact Number' }}"
                     type="number" wire:model='phone' />
                 @error('phone')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger text-sm">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -76,7 +76,7 @@
                 <input class="input" type="email" placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}"
                     wire:model='email' />
                 @error('email')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger text-sm">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -90,7 +90,7 @@
                     placeholder="{{ $lang->data['enter_currency_symbol'] ?? 'Enter Currency Symbol' }}"
                     wire:model='currency_symbol' />
                 @error('currency_symbol')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger text-sm">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -104,7 +104,7 @@
                     placeholder="{{ $lang->data['enter_tax_percentage'] ?? 'Enter Tax Percentage' }}"
                     wire:model='tax_percentage' />
                 @error('tax_percentage')
-                    <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger text-sm">{{ $message }}</span>
                 @enderror
             </div>
         </div>

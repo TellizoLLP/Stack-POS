@@ -11,11 +11,16 @@
                         </h1>
                     </div>
                     <div class="flex items-center gap-1">
+                        <div class="flex items-center gap-1">
+                            <a class="btn btn-light btn-sm" href="{{ route('admin.view_inventory') }}">
+                                {{ $lang->data['back'] ?? 'Back' }}
+                            </a>
+                        </div>
                         @if (Auth::user()->can('add_product'))
-                        <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
-                            href="{{ route('admin.add_products') }}">
-                            {{ $lang->data['new_product'] ?? 'New Product' }}
-                        </a>
+                            <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
+                                href="{{ route('admin.add_products') }}">
+                                {{ $lang->data['new_product'] ?? 'New Product' }}
+                            </a>
                         @endif
                     </div>
                 </div>
@@ -41,59 +46,65 @@
                             </thead>
                             <tbody>
                                 @foreach ($products as $item)
-                                <tr>
-                                    <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ getCurrency() }}{{ $item->price }}</td>
-                                    <td><span class="badge badge-sm badge-outline 'badge-seccondary text-white'">{{ $item->category->name }}</span>
+                                    <tr>
+                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ getCurrency() }}{{ $item->price }}</td>
+                                        <td><span
+                                                class="badge badge-sm badge-outline 'badge-seccondary text-white'">{{ $item->category->name }}</span>
 
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-secondary text-white' }}">
-                                            {{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}
-                                        </span>
-                                    </td>
+                                        </td>
+                                        <td>
+                                            <span
+                                                class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-danger text-white' }}">
+                                                {{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}
+                                            </span>
+                                        </td>
 
-                                    <td>
-                                        <div class="flex items-center gap-3">
-                                            <div>
-                                                @if (Auth::user()->can('add_addon'))
-                                                <a class="menu-link" href="{{ route('admin.addons', $item->id) }}">
-                                                    <span class="menu-icon">
-                                                        <i class="ki-filled ki-plus text-lg hover:text-green-600">
-                                                        </i>
-                                                    </span>
-                                                </a>
-                                                @endif
+                                        <td>
+                                            <div class="flex items-center gap-3">
+                                                <div>
+                                                    @if (Auth::user()->can('add_addon'))
+                                                        <a class="menu-link"
+                                                            href="{{ route('admin.addons', $item->id) }}">
+                                                            <span class="menu-icon">
+                                                                <i
+                                                                    class="ki-filled ki-plus text-lg hover:text-green-600">
+                                                                </i>
+                                                            </span>
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                                <div>
+                                                    @if (Auth::user()->can('edit_product'))
+                                                        <a class="menu-link"
+                                                            href="{{ route('admin.edit_product', $item->id) }}">
+                                                            <span class="menu-icon">
+                                                                <i
+                                                                    class="ki-filled ki-pencil text-lg hover:text-blue-500">
+                                                                </i>
+                                                            </span>
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                                <div>
+                                                    @if (Auth::user()->can('delete_product'))
+                                                        <a class="menu-link">
+                                                            <i class="ki-filled ki-trash text-lg hover:text-red-500"
+                                                                wire:click="delete({{ $item }})">
+                                                            </i>
+                                                        </a>
+                                                    @endif
+                                                </div>
                                             </div>
-                                            <div>
-                                                @if (Auth::user()->can('edit_product'))
-                                                <a class="menu-link" href="{{ route('admin.edit_product', $item->id) }}">
-                                                    <span class="menu-icon">
-                                                        <i class="ki-filled ki-pencil text-lg hover:text-blue-500">
-                                                        </i>
-                                                    </span>
-                                                </a>
-                                                @endif
-                                            </div>
-                                            <div>
-                                                @if (Auth::user()->can('delete_product'))
-                                                <a class="menu-link">
-                                                    <i class="ki-filled ki-trash text-lg hover:text-red-500"
-                                                        wire:click="delete({{ $item }})">
-                                                    </i>
-                                                </a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         @if (count($products) == 0)
-                        <x-no-data-component
-                            message="{{ $lang->data['no_products_found'] ?? 'No products were found..' }}" />
+                            <x-no-data-component
+                                message="{{ $lang->data['no_products_found'] ?? 'No products were found..' }}" />
                         @endif
                     </div>
                 </div>

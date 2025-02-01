@@ -11,20 +11,20 @@
                         </h1>
                     </div>
                     <div class="flex items-center gap-1">
-                    <div class="flex items-center gap-1">
-                    <a class="btn btn-light btn-sm" href="{{route('admin.view_inventory')}}">
-                        {{ $lang->data['back'] ?? 'Back' }}
-                    </a>
-                </div>
+                        <div class="flex items-center gap-1">
+                            <a class="btn btn-light btn-sm" href="{{ route('admin.view_inventory') }}">
+                                {{ $lang->data['back'] ?? 'Back' }}
+                            </a>
+                        </div>
                         @if (Auth::user()->can('add_category'))
                             <a class="btn btn-light btn-sm " data-modal-toggle="#modalCategory" href="#"
                                 wire:click="resetFields">
                                 {{ $lang->data['new_category'] ?? 'New Category' }}
                             </a>
                         @endif
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -50,7 +50,8 @@
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            <span class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-danger text-white' }}">
+                                            <span
+                                                class="badge badge-sm badge-outline {{ $item->is_active == 1 ? 'badge-success text-white' : 'badge-danger text-white' }}">
                                                 {{ $item->is_active == 1 ? $lang->data['active'] ?? 'Active' : $lang->data['inactive'] ?? 'Inactive' }}
                                             </span>
                                         </td>
