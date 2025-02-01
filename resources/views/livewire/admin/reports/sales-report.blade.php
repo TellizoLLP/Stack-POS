@@ -15,67 +15,78 @@
                             href="{{ route('admin.report_view') }}">
                             {{ $lang->data['back'] ?? 'Back' }}
                         </a>
-                       
+
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="flex flex-wrap ">
+        <div class="flex flex-col p-4">
+            <label for="start_date" class="font-medium text-gray-700 text-sm">
+                {{ $lang->data['start_date'] ?? 'Start Date' }}
+            </label>
+            <input type="date" class="input text-sm" id="start_date" wire:model="start_date">
+        </div>
+        <div class="flex flex-col p-4">
+            <label for="end_date" class="font-medium text-gray-700 text-sm">
+                {{ $lang->data['end_date'] ?? 'End Date' }}
+            </label>
+            <input type="date" class="input text-sm" id="end_date" wire:model="end_date">
+        </div>
+        <div class="flex flex-col p-4">
+            <label for="order_type" class="font-medium text-gray-700 text-sm ">
+                {{ $lang->data['order_type'] ?? 'Order Type' }}
+            </label>
+            <div class="grow">
+                <select class="select" id="order_type" wire:model="order_type">
+                    <option class="select-box" value="ALL">
+                        {{ $lang->data['all_types'] ?? 'All Types' }}
+                    </option>
+                    <option class="select-box" value="1">{{ $lang->data['dining'] ?? 'Dinning' }}
+                    </option>
+                    <option class="select-box" value="2">
+                        {{ $lang->data['takeaway'] ?? 'Takeaway' }}
+                    </option>
+                    <option class="select-box" value="3">
+                        {{ $lang->data['delivery'] ?? 'Delivery' }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-col  mt-11 pl-4 pb-4">
+            <a class="btn btn-light btn-sm" wire:click="getData">
+                {{ $lang->data['search'] ?? 'Search' }}
+            </a>
         </div>
     </div>
     <main class="w-full grow">
         <div class="min-w-full card card-grid rounded-none border-none shadow-none">
             <div class="card-body">
                 <div>
-                    <div class="flex flex-wrap gap-3">
-                        <div class="flex flex-col p-4">
-                            <label for="start_date" class="font-medium text-gray-700">
-                                {{ $lang->data['start_date'] ?? 'Start Date' }}
-                            </label>
-                            <input type="date" class="form-control text-sm" id="start_date" wire:model="start_date">
-                        </div>
-                        <div class="flex flex-col p-4">
-                            <label for="end_date" class="font-medium text-gray-700">
-                                {{ $lang->data['end_date'] ?? 'End Date' }}
-                            </label>
-                            <input type="date" class="form-control text-sm" id="end_date" wire:model="end_date">
-                        </div>
-                        <div class="flex flex-col p-4">
-                            <label for="order_type" class="font-medium text-gray-700">
-                                {{ $lang->data['order_type'] ?? 'Order Type' }}
-                            </label>
-                            <select class="text-sm" id="order_type" wire:model="order_type">
-                                <option class="select-box" value="ALL">{{ $lang->data['all_types'] ?? 'All Types' }}
-                                </option>
-                                <option class="select-box" value="1">{{ $lang->data['dining'] ?? 'Dinning' }}
-                                </option>
-                                <option class="select-box" value="2">{{ $lang->data['takeaway'] ?? 'Takeaway' }}
-                                </option>
-                                <option class="select-box" value="3">{{ $lang->data['delivery'] ?? 'Delivery' }}
-                                </option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col p-4">
-                        <a class="btn btn-light btn-sm " wire:click="getData">
-                            {{ $lang->data['search'] ?? 'Search' }}
-                        </a>
-                        </div>
-                    </div>
                     <div class="scrollable-x-auto mt-5">
                         <table class="table table-auto table-border">
                             <thead>
                                 <tr>
                                     <th class="tw-2">{{ $lang->data['sl'] ?? 'Sl' }}</th>
-                                    <th class="tw-10">{{ $lang->data['order_Date'] ?? 'Order Date' }}</th>
-                                    <th class="tw-10">{{ $lang->data['order_no'] ?? 'Invoice No' }}</th>
+                                    <th class="tw-10">{{ $lang->data['order_Date'] ?? 'Order Date' }}
+                                    </th>
+                                    <th class="tw-10">{{ $lang->data['order_no'] ?? 'Invoice No' }}
+                                    </th>
                                     <th class="tw-20">{{ $lang->data['customer'] ?? 'Customer' }}</th>
-                                    <th class="tw-20">{{ $lang->data['order_details'] ?? 'Order Details' }}</th>
-                                    <th class="tw-20">{{ $lang->data['payment_details'] ?? 'Payment Details' }}</th>
+                                    <th class="tw-20">
+                                        {{ $lang->data['order_details'] ?? 'Order Details' }}</th>
+                                    <th class="tw-20">
+                                        {{ $lang->data['payment_details'] ?? 'Payment Details' }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($order->date)->format('d/m/Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($order->date)->format('d/m/Y') }}
+                                        </td>
                                         <td>{{ $order->order_number }}</td>
                                         <td>{{ $order->customer_name_fn }}</td>
                                         <td class="d-none d-xl-table-cell">
