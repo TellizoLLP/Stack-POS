@@ -13,10 +13,10 @@
                     </div>
                     <div class="flex items-center gap-1">
                         <a class="btn btn-light btn-sm " data-modal-toggle="#ModalCustomer"
-                        href="{{ route('admin.report_view') }}">
-                        {{ $lang->data['back'] ?? 'Back' }}
-                    </a>
-                        
+                            href="{{ route('admin.report_view') }}">
+                            {{ $lang->data['back'] ?? 'Back' }}
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -29,30 +29,32 @@
             <div class="card-body">
 
                 {{-- <div class="card-header p-3"> --}}
-                    <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap ">
 
-                        <div class="flex flex-col p-4">
-                            <label>{{ $lang->data['start_date'] ?? 'Start Date' }}</label>
-                            <input type="date" class="form-control" wire:model="start_date">
-                        </div>
+                    <div class="flex flex-col p-4">
+                        <label for="start_date"
+                            class="font-medium text-gray-700 text-sm">{{ $lang->data['start_date'] ?? 'Start Date' }}</label>
+                        <input type="date" class="input text-sm" wire:model="start_date">
+                    </div>
 
-                        <div class="flex flex-col p-4">
-                            <label>{{ $lang->data['end_date'] ?? 'End Date' }}</label>
-                            <input type="date" class="form-control" wire:model="end_date">
-                        </div>
+                    <div class="flex flex-col p-4">
+                        <label for="start_date"
+                            class="font-medium text-gray-700 text-sm">{{ $lang->data['end_date'] ?? 'End Date' }}</label>
+                        <input type="date" class="input text-sm" wire:model="end_date">
+                    </div>
 
-                        <div class="flex flex-col p-4">
-                            <label class="">{{ $lang->data['search_item'] ?? 'Search Item' }}</label>
-                            <input type="text" 
-                                placeholder="{{ $lang->data['all_items'] ?? 'All Items' }}" wire:model='search'/>
-                        </div>
-                        <div class="flex flex-col p-4">
-                        <a class="btn btn-light btn-sm"
-                            wire:click='getData'>
+                    <div class="flex flex-col p-4">
+                        <label
+                            class="font-medium text-gray-700 text-sm">{{ $lang->data['search_item'] ?? 'Search Item' }}</label>
+                        <input type="text" class="input text-sm"
+                            placeholder="{{ $lang->data['all_items'] ?? 'All Items' }}" wire:model='search' />
+                    </div>
+                    <div class="flex flex-col  mt-11 pl-4 pb-4">
+                        <a class="btn btn-light btn-sm" wire:click="getData">
                             {{ $lang->data['search'] ?? 'Search' }}
                         </a>
-                        </div>
                     </div>
+                </div>
                 {{-- </div> --}}
 
 

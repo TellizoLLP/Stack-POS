@@ -23,18 +23,18 @@
     </div>
     <div class="flex flex-wrap ">
         <div class="flex flex-col p-4">
-            <label for="start_date" class="font-medium text-gray-700">
+            <label for="start_date" class="font-medium text-gray-700 text-sm">
                 {{ $lang->data['start_date'] ?? 'Start Date' }}
             </label>
             <input class="input text-sm" type="date" id="start_date" wire:model="start_date">
         </div>
         <div class="flex flex-col p-4">
-            <label for="end_date" class="font-medium text-gray-700">
+            <label for="end_date" class="font-medium text-gray-700 text-sm">
                 {{ $lang->data['end_date'] ?? 'End Date' }}
             </label>
             <input type="date" class="input text-sm" id="end_date" wire:model="end_date">
         </div>
-        <div class="flex flex-col  mt-12 pl-4 pb-4">
+        <div class="flex flex-col  mt-11 pl-4 pb-4">
             <a class="btn btn-light btn-sm" wire:click="getData">
                 {{ $lang->data['search'] ?? 'Search' }}
             </a>
