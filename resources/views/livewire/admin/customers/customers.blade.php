@@ -153,15 +153,10 @@
                                 <textarea placeholder="{{ $lang->data['address'] ?? 'Address' }}" wire:model="address"
                                     class="p-3 resize-none input min-h-20" id=""></textarea>
                             </div>
+                            <button class="justify-center btn btn-primary" wire:click="create">
+                                {{ $lang->data['save'] ?? 'Save' }}
+                            </button>
                         </div>
-                    </div>
-                    <div class="flex justify-end gap-4 px-5">
-                        <button type="button" class="btn btn-secondary"
-                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
-
-                        <button class="justify-center btn btn-primary" wire:click="create">
-                            {{ $lang->data['save'] ?? 'Save' }}
-                        </button>
                     </div>
                 </div>
             </div>
@@ -232,19 +227,13 @@
                                 <textarea placeholder="{{ $lang->data['address'] ?? 'Address' }}" wire:model="address"
                                     class="p-3 resize-none input min-h-20" id=""></textarea>
                             </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-end gap-4 px-5">
-                        <button type="button" class="btn btn-secondary"
-                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
-
-                        <button class="justify-center btn btn-primary" wire:click="update">
-                            {{ $lang->data['save'] ?? 'Save' }}
-                        </button>
+                            <button class="justify-center btn btn-primary" wire:click="update">
+                                {{ $lang->data['save'] ?? 'Save' }}
+                            </button>
+                        </div>                   
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
 </div>

@@ -119,14 +119,15 @@
                                 {{ $lang->data['is_active'] ?? 'isActive' }}
                             </label>
                         </div>
-                    </div>
-                    <div class="flex justify-end gap-4 px-5">
-                        <button type="button" class="btn btn-secondary"
-                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
                         <button class="justify-center btn btn-primary" wire:click="create">
                             {{ $lang->data['save'] ?? 'Save' }}
                         </button>
                     </div>
+                    {{-- <div class="flex justify-end gap-4 px-5">
+                        <button type="button" class="btn btn-secondary"
+                        data-modal-dismiss="true">{{ $lang->data['close'] ?? 'Close' }}</button>
+                        
+                    </div> --}}
                 </div>
 
             </div>
